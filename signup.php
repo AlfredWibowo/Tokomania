@@ -14,16 +14,66 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 </head>
 <body>
-   <form method="POST" action="./phps/verify-login.php">
+   <form method="POST">
         <div class="form-group">
-            <label for="username">Email address</label>
-            <input type="text" class="form-control" name="username" id="username" placeholder="Enter username">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
         </div>
-        <button type="submit" class="btn btn-primary">Sign Up</button>
+        <div class="form-group">
+            <label for="nama">Nama</label>
+            <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama" required>
+        </div>
+        <div class="form-group">
+            <label for="alamat">Alamat</label>
+            <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Alamat" required>
+        </div>
+        <div class="form-group">
+            <label for="telp">No Telp</label>
+            <input type="text" class="form-control" name="telp" id="telp" placeholder="No Telp" required>
+        </div>
+        <button type="text" class="btn btn-primary" onclick="signup()">Sign Up</button>
     </form>
+
+    <script>
+        function signup()
+        {
+            var nama = $("#nama").val();
+            var alamat = $("#alamat").val();
+            var no_telp = $("#telp").val();
+            var username = $("#username").val();
+            var password = $("#password").val();
+            console.log("helo");
+            $.ajax({
+                url: "./services/signup.php",
+                method: "POST",
+                data: {
+                    username : username,
+                    password : password,
+                    nama: nama,
+                    no_telp: no_telp,
+                    alamat: alamat
+                },
+                complete: function(result){
+                    var data = result.responseJSON;
+                    if(data.stat == 1)
+                    {
+                        console.log("success");
+                    }
+                    else if(data.stat == 2)
+                    {
+                        console.log("ganti username");
+                    }
+                    else
+                    {
+                        console.log("error");
+                    }
+                }
+            })
+        }
+    </script>
 </body>
 </html>

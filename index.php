@@ -14,16 +14,43 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 </head>
 <body>
-   <form method="POST" action="./phps/verify-login.php">
+    <form method="POST">
         <div class="form-group">
-            <label for="username">Email address</label>
-            <input type="text" class="form-control" name="username" id="username" placeholder="Enter username">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username" id="username" placeholder="Enter username" required>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
         </div>
-        <button type="submit" class="btn btn-primary">Log in</button>
-    </form>
+        <button type="text" class="btn btn-primary" onclick="loginattempt()">Log in</button>
+        <br>
+        <a href="signup.php">Sign up</a>
+    </form>        
+
+    <script>
+        function loginattempt()
+        {
+            $.ajax({
+                url: "./services/verify-login.php",
+                method: "POST",
+                data: {
+                    username : $("#username").val(),
+                    password : $("#password").val()
+                },
+                success: function(result){
+                    if(result == "success")
+                    {
+                        console.log("login sukses");
+                    }
+                    else
+                    {
+                        console.log("login gagal");
+                    }
+                }
+            })
+        }
+
+    </script>
 </body>
 </html>
