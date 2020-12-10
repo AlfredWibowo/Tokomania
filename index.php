@@ -39,9 +39,10 @@
                     password : $("#password").val()
                 },
                 success: function(result){
-                    if(result == "success")
+                    console.log(result);
+                    if(result.stat == 1)
                     {
-                        console.log("login sukses");
+                        window.location.href = "home.php";
                     }
                     else
                     {

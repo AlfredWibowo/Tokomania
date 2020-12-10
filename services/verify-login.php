@@ -1,6 +1,12 @@
 <?php
     include "./database.php";
 
+    header("Content-Type: application/json");
+
+    $status = array(
+        'stat' => 0
+    );
+
     if($_SERVER['REQUEST_METHOD'] == "POST")
     {
         $username = $_POST['username'];
@@ -14,15 +20,12 @@
         {
             session_start();
             $_SESSION['username'] = $username;
-            echo "success";
+            $status['stat'] = 1;
         }
-        else
-        {
-            echo "failed";
-        }
+        echo json_encode($status);
     }
     else
     {
-        echo "failed";
+        echo json_encode($status);
     }
 ?>

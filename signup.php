@@ -1,5 +1,5 @@
 <?php
-    
+    include "./services/database.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +37,6 @@
         </div>
         <button type="text" class="btn btn-primary" onclick="signup()">Sign Up</button>
     </form>
-
     <script>
         function signup()
         {
@@ -46,7 +45,8 @@
             var no_telp = $("#telp").val();
             var username = $("#username").val();
             var password = $("#password").val();
-            console.log("helo");
+            console.log("hello");
+             
             $.ajax({
                 url: "./services/signup.php",
                 method: "POST",
@@ -57,22 +57,19 @@
                     no_telp: no_telp,
                     alamat: alamat
                 },
-                complete: function(result){
-                    var data = result.responseJSON;
-                    if(data.stat == 1)
+                success: function(result){
+                    console.log(result);
+                    if(result.stat == 1)
                     {
-                        console.log("success");
-                    }
-                    else if(data.stat == 2)
-                    {
-                        console.log("ganti username");
+                        window.location.href = "home.php";
                     }
                     else
                     {
-                        console.log("error");
+                        console.log("login gagal");
                     }
                 }
             })
+           
         }
     </script>
 </body>

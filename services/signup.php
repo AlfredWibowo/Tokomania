@@ -1,5 +1,5 @@
 <?php
-    include "./database.php";
+    require "./database.php";
 
     header("Content-Type: application/json");
 
@@ -18,6 +18,7 @@
         {
             $check = "SELECT * FROM pembeli WHERE username = ?";
             $stmt = $pdo->prepare($check);
+            var_dump($pdo);
             $stmt->execute([$username]);
 
             if($stmt->rowCount() > 0)
@@ -27,15 +28,22 @@
             else
             {
                 $status['stat'] = 1;
-                $insert = "INSERT INTO pembeli VALUES(?,?,?,?,?,?)";
-                $add = $pdo->prepare($insert);
-                $add->execute(['',$nama,$telp,$alamat,$username,$password]);
+                $insertdata = "INSERT INTO pembeli (nama,no_telp,alamat,username,password) VALUES(?,?,?,?,?)";
+                $resultstatus = $insertstmt = $pdo->prepare($insertdata);
+                if ($resultstatus) {
+                    echo "\nPDO::errorInfo():\n";
+                    print_r($pdo->errorInfo());
+                }
+                var_dump($insertstmt);
+                $insertstmt->execute([$nama,$telp,$alamat,$username,$password]);
+                var_dump($pdo);                
             }
-        }        
-        echo json_encode($status);
+        }    
+        
+        echo json_encode($status);    
     }
     else
     {
-       echo json_encode($status);
+       echo json_encode($status); 
     }
 ?>
