@@ -18,7 +18,6 @@
         {
             $check = "SELECT * FROM pembeli WHERE username = ?";
             $stmt = $pdo->prepare($check);
-            var_dump($pdo);
             $stmt->execute([$username]);
 
             if($stmt->rowCount() > 0)
@@ -29,14 +28,8 @@
             {
                 $status['stat'] = 1;
                 $insertdata = "INSERT INTO pembeli (nama,no_telp,alamat,username,password) VALUES(?,?,?,?,?)";
-                $resultstatus = $insertstmt = $pdo->prepare($insertdata);
-                if ($resultstatus) {
-                    echo "\nPDO::errorInfo():\n";
-                    print_r($pdo->errorInfo());
-                }
-                var_dump($insertstmt);
+                $insertstmt = $pdo->prepare($insertdata);
                 $insertstmt->execute([$nama,$telp,$alamat,$username,$password]);
-                var_dump($pdo);                
             }
         }    
         
