@@ -1,5 +1,5 @@
 <?php
-    include "./services/database.php";    
+    include "../services/database.php";    
 ?>
 <!DOCTYPE html>
 <html lang="en">
