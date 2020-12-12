@@ -16,16 +16,17 @@
      <script>        
         function CheckUsername()
         {
-            var username = $("#username").val();
+            var username = $("#nama_toko").val();
             console.log(username);
             $.ajax({
                 url: "../services/checkusernametoko.php",
                 method: "POST",
                 data:{
-                    username: username
+                    nama_toko: username
                 },
                 success: function(result)
                 {
+                    console.log(result);
                     if(result == "no")
                     {
                         document.getElementById("warning").innerHTML = "Username unavailable";
@@ -74,7 +75,7 @@
    <form method="POST" action="./services/signup.php">
         <div class="form-group">
             <label for="username">Nama Toko</label>
-            <input onkeyup="CheckUsername()" type="text" class="form-control" name="nama_toko" id="username" placeholder="Username" required>
+            <input onkeyup="CheckUsername()" type="text" class="form-control" name="nama_toko" id="nama_toko" placeholder="Username" required>
             <p id="warning"></p>   
         </div>
         <div class="form-group">

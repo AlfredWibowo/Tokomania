@@ -47,40 +47,11 @@
 <body>
     <?php echo "Welcome to your seller dashboard ".'<b>'.$username.'</b>'."!"; ?>
 
-    <button class="btn btn-primary" data-toggle="modal" data-target="#mymodal">
-        Add Item
-    </button>
-
-    <form method="POST" action="">
-
-
-    </form>
-
-    <div id="mymodal" class="modal hide fade" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header" style="background-color: green; color: white;">
-                        Add New Item
-                        <button type="button" class="close" style="color: white;;" data-dismiss="modal">&times;</button>
-                    </div>
-                    <!-- Start Body -->
-                    <div class="modal-body" >
-                        <div class="form-group">
-                            Product Name
-                            <input type="text" id="pname" class="form-control" placeholder="Product Name">
-                        </div>
-                        <div class="form-group">
-                            Description
-                            <textarea class="form-control" id="desc" placeholder="Product Description Here" rows="4"></textarea>
-                        </div>
-                    </div>
-                    <!-- End Body -->
-                    <div class="modal-footer" >
-                        <button type="button" class="btn btn-lg btn-primary" style="background-color: green;" id="additem">+ Add</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <form method = "POST" action="addpage.php">       
+        <button class="btn btn-primary">
+            Add Product
+        </button>
+    </form> 
 
     <button class="btn btn-primary" onclick="LogOut()">
         Logout
