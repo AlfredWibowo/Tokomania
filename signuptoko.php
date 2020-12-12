@@ -90,7 +90,7 @@
             <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama" required>
         </div>
         <div class="form-group">
-            <label for="alamat">Alamat</label>
+            <label for="alamat">Alamat Toko</label>
             <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Alamat" required>
         </div>
         <div class="form-group">
