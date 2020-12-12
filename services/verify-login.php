@@ -12,13 +12,12 @@
 
         if($stmt->rowCount() == 1)
         {
-            session_start();
             $_SESSION['username'] = $username;
             header("Location: ../home.php");
         }
         else
         {
-            header("Location: ../index.php?stat=2");
+            //header("Location: ../index.php?stat=2");
         }
     }
     else

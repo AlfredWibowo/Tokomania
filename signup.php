@@ -1,5 +1,9 @@
 <?php
-    include "./services/database.php";    
+    include "./services/database.php"; 
+    if(isset($_SESSION['username']))
+    {
+        header("Location: ./home.php");
+    }   
 ?>
 <!DOCTYPE html>
 <html lang="en">

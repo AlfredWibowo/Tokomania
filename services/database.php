@@ -15,5 +15,6 @@
         $pdo = new PDO($dsn, $user, $pass, $options);
     } catch (\PDOException $e) {
         throw \PDOException($e->getMessage(), $e->getCode());
-    }
+    }    
+    session_start();
 ?>

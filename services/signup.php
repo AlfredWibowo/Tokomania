@@ -29,6 +29,7 @@
                 $insertdata = "INSERT INTO pembeli (nama,no_telp,alamat,username,password) VALUES(?,?,?,?,?)";
                 $insertstmt = $pdo->prepare($insertdata);
                 $insertstmt->execute([$nama,$telp,$alamat,$username,$password]);
+                $_SESSION['username'] = $username;
                 header("Location: ../home.php");
             }
         }
