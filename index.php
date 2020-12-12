@@ -1,8 +1,21 @@
 <?php
+    include "./services/database.php";
     if(isset($_SESSION['username']))
     {
         header("Location: ./home.php");
     } 
+    if(isset($_GET['stat']))
+    {
+        $error = $_GET['stat'];
+        if($error == 2)
+        {
+            echo "<script>alert('Wrong password and username')</script>";
+        }
+        else if($error == 2)
+        {
+            echo "<script>alert('Try again')</script>";
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -4,6 +4,18 @@
     {
         header("Location: ./home.php");
     }   
+    if(isset($_GET['stat']))
+    {
+        $error = $_GET['stat'];
+        if($error == 1)
+        {
+            echo "<script>alert('Try Again')</script>";
+        }
+        else if($error == 2)
+        {
+            echo "<script>alert('Password Incorrect')</script>";
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +32,6 @@
         function CheckUsername()
         {
             var username = $("#username").val();
-            console.log(username);
             $.ajax({
                 url: "./services/checkusername.php",
                 method: "POST",
@@ -70,14 +81,15 @@
                 document.getElementById("checkpass").style.color = "green";
                 document.getElementById("signup").disabled = false;
             }
+            CheckUsername();
         }
     </script>
 </head>
-<body onload="CheckUsername()">
+<body onload="CheckPassword()">
    <form method="POST" action="./services/signup.php">
         <div class="form-group">
             <label for="username">Username</label>
-            <input onkeyup="CheckUsername()" type="text" class="form-control" name="username" id="username" placeholder="Username" required>
+            <input onkeyup="CheckPassword()" type="text" class="form-control" name="username" id="username" placeholder="Username" required>
             <p id="warning"></p>   
         </div>
         <div class="form-group">
@@ -103,19 +115,5 @@
         </div>
         <button type="submit" class="btn btn-primary" id="signup" disabled>Sign Up</button>
     </form>
-    <?php
-        if(isset($_GET['stat']))
-        {
-            $error = $_GET['stat'];
-            if($error == 1)
-            {
-                echo "<script>alert('Try Again')</script>";
-            }
-            else if($error == 2)
-            {
-                echo "<script>alert('Password Incorrect')</script>";
-            }
-        }
-    ?>   
 </body>
 </html>

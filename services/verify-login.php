@@ -17,7 +17,7 @@
         }
         else
         {
-            //header("Location: ../index.php?stat=2");
+            header("Location: ../index.php?stat=2");
         }
     }
     else

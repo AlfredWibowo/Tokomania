@@ -1,9 +1,11 @@
 <?php
+    include "./services/database.php";
     if(!isset($_SESSION['username']))
     {
         header("Location: index.php");
         exit();
     } 
+    $username = $_SESSION['username'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,6 +15,6 @@
     <title>Home</title>
 </head>
 <body>
-    
+    <?php echo $username; ?>
 </body>
 </html>
