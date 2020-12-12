@@ -1,8 +1,8 @@
 <?php
-    include "./services/database.php";
-    if(isset($_SESSION['username']))
+    include "../services/database.php";
+    if(isset($_SESSION['usernametoko']))
     {
-        header("Location: ./home.php");
+        header("Location: ./home-toko.php");
     } 
     if(isset($_GET['stat']))
     {
@@ -30,10 +30,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 </head>
 <body>
-    <form method="POST" action="./services/verify-login.php">
+    <form method="POST" action="../services/verify-login-toko.php">
         <div class="form-group">
             <label for="username">Username</label>
-            <input type="text" class="form-control" name="username" id="username" placeholder="Enter username" required>
+            <input type="text" class="form-control" name="nama_toko" id="username" placeholder="Enter username" required>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
@@ -42,6 +42,7 @@
         <button type="submit" class="btn btn-primary">Log in</button>
         <br>
         <a href="signup.php">Sign up</a><br>
+        <a href="../index.php">Log in pembeli</a><br>
     </form>
 </body>
 </html>
