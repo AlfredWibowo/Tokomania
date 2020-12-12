@@ -19,7 +19,7 @@
             var username = $("#username").val();
             console.log(username);
             $.ajax({
-                url: "./services/checkusername.php",
+                url: "../services/checkusernametoko.php",
                 method: "POST",
                 data:{
                     username: username
@@ -73,8 +73,8 @@
 <body onload="CheckUsername()">
    <form method="POST" action="./services/signup.php">
         <div class="form-group">
-            <label for="username">Username</label>
-            <input onkeyup="CheckUsername()" type="text" class="form-control" name="username" id="username" placeholder="Username" required>
+            <label for="username">Nama Toko</label>
+            <input onkeyup="CheckUsername()" type="text" class="form-control" name="nama_toko" id="username" placeholder="Username" required>
             <p id="warning"></p>   
         </div>
         <div class="form-group">
@@ -87,12 +87,8 @@
         </div>
         <p id="checkpass"></p>
         <div class="form-group">
-            <label for="nama">Nama</label>
-            <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama" required>
-        </div>
-        <div class="form-group">
-            <label for="alamat">Alamat Toko</label>
-            <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Alamat" required>
+            <label for="nama">Email</label>
+            <input type="text" class="form-control" name="email" id="nama" placeholder="Nama" required>
         </div>
         <div class="form-group">
             <label for="telp">No Telp</label>

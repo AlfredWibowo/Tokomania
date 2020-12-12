@@ -19,7 +19,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
 
-
     <script>
         function getItem()
         {
@@ -38,14 +37,53 @@
                 }
             })
         }
+        $(function(){
+            $("#additem").click(function(){
+
+            })
+        })
     </script>
 </head>
 <body>
+    <?php echo "Welcome to your seller dashboard ".'<b>'.$username.'</b>'."!"; ?>
+
+    <button class="btn btn-primary" data-toggle="modal" data-target="#mymodal">
+        Add Item
+    </button>
+
+    <form method="POST" action="">
+
+
+    </form>
+
+    <div id="mymodal" class="modal hide fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: green; color: white;">
+                        Add New Item
+                        <button type="button" class="close" style="color: white;;" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Start Body -->
+                    <div class="modal-body" >
+                        <div class="form-group">
+                            Product Name
+                            <input type="text" id="pname" class="form-control" placeholder="Product Name">
+                        </div>
+                        <div class="form-group">
+                            Description
+                            <textarea class="form-control" id="desc" placeholder="Product Description Here" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <!-- End Body -->
+                    <div class="modal-footer" >
+                        <button type="button" class="btn btn-lg btn-primary" style="background-color: green;" id="additem">+ Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <button class="btn btn-primary" onclick="LogOut()">
         Logout
     </button>
-
-
-    <?php echo "Welcome to your seller dashboard ".'<b>'.$username.'</b>'."!"; ?>
 </body>
 </html>

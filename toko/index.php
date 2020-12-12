@@ -49,6 +49,18 @@
                 </form>
             </div> 
         </div>
+<<<<<<< Updated upstream
     </div>       
+=======
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Log in</button>
+        <br>
+        <a href="./signuptoko.php">Sign up</a><br>
+        <a href="../index.php">Log in pembeli</a><br>
+    </form>
+>>>>>>> Stashed changes
 </body>
 </html>
