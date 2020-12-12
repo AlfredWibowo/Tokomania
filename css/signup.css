@@ -1,0 +1,14 @@
+body {
+    background-color: #96b753;
+}
+
+.container-fluid {
+    margin-top: 50px;
+ }
+ 
+ .row {
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    width: 95%;
+ }
