@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2020 at 02:56 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.4
+-- Generation Time: Dec 12, 2020 at 10:33 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -114,7 +114,8 @@ ALTER TABLE `item`
 -- Indexes for table `pembeli`
 --
 ALTER TABLE `pembeli`
-  ADD PRIMARY KEY (`id_pembeli`);
+  ADD PRIMARY KEY (`id_pembeli`),
+  ADD UNIQUE KEY `username` (`username`);
 
 --
 -- Indexes for table `pembelian`
@@ -127,7 +128,8 @@ ALTER TABLE `pembelian`
 -- Indexes for table `toko`
 --
 ALTER TABLE `toko`
-  ADD PRIMARY KEY (`id_toko`);
+  ADD PRIMARY KEY (`id_toko`),
+  ADD UNIQUE KEY `nama_toko` (`nama_toko`);
 
 --
 -- AUTO_INCREMENT for dumped tables
