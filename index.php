@@ -25,7 +25,8 @@
         </div>
         <button type="text" class="btn btn-primary">Log in</button>
         <br>
-        <a href="signup.php">Sign up</a>
+        <a href="signup.php">Sign up</a><br>
+        <a href="./toko/index.php">Login Toko</a>
     </form>        
 </body>
 </html>
