@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+body{
+    background: #c6e686;
+}
+.container {
+    width: 100%;
+    height: 100%;
+    background: #c6e686;
+}
+.menu{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: #c6e686;;
+}
+.menu ul {
+    display: inline-flex;
+    margin-top: 35px;
+    float: left;
+    width: 90%;
+}
+
+.menu ul li {
+    list-style: none;
+    margin: 0 20px;
+    color: rgb(94, 91, 91);
+    cursor: pointer;
+}
+
+.logo img {
+    width: 100px;
+    margin-top: -30px;
+    margin-right: 15px;
+}
+
+.active {
+    color: rgb(5, 17, 180) !important;
+}
+
+.Logout{
+    float: right;
+    width: 10%;
+    position: relative;
+    height: 100%;
+    margin-top: 35px;
+}
+.signup-btn {
+    padding-left: 30px;
+    text-decoration: none;
+    color: rgb(94, 91, 91);
+    border: 2px solid transparent;
+    border-radius: 20px;
+    background-image: linier-gradient(#42455a, #42455a),
+        radial-gradient(circle at top left, #fd00da, #19d7f8);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+.signup-btn span {
+    display: block;
+    padding: 8px 22pxS;
+}
+
+.quick-menu {
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    background: linear-gradient(to right, #96b753, #7d9b5d);
+    height: 100px;
+    z-index: 1000;
+}
+
+.quick-menu ul {
+    display: inline-flex;
+    margin: 30px auto;
+    cursor: pointer;
+}
+
+.quick-menu ul li {
+    list-style: none;
+    margin: 0 50px;
+    cursor: pointer;
+}
+
+.quick-menu ul li .fa {
+    font-size: 25px;
+    color: black;
+}
+
+.quick-menu ul li p {
+    font-size: 10px;
+    color: black;
+    margin-top: 15px;
+}
+
+.quick-social {
+    right: 72px;
+    bottom: 35px;
+    position: fixed;
+}
+
+.quick-social ul li {
+    list-style: none;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.quick-social ul li {
+    color: #999;
+    border-radius: 50%;
+    border: 1px solid #999;
+    padding: 5px;
+    display: block;
+
+}
+.item-list{
+    margin-top: 10%;
+}
