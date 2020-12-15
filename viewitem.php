@@ -6,6 +6,13 @@
         exit();
     } 
     $username = $_SESSION['username'];
+    if(isset($_GET['id']))
+    {
+        $id_item = $_GET['id'];
+        $sql = "SELECT * FROM item i JOIN toko t ON i.id_toko = t.id_toko WHERE i.id_item = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$id_item]);        
+    }
 ?>
 <html>
     <head>
@@ -19,44 +26,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloud
         flare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script>
-            function getItem()
-            {
-                $.ajax({
-                    url: "./services/getitem.php",
-                    method: "POST",
-                    success: function(res){
-                        $("#item-list").html('');
-                        var num = 0;                        
-                        var row = $("<tr></tr>");
-                        res.forEach(function(item){
-                            num++;
-                            var col = $("<td></td>");
-
-                            var isi = $(`
-                            <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="`+ item['gambar_filepath'] +`" alt="Card image cap">
-                                <div class="card-body">
-                                    <h5 class="card-title">`+ item['nama_item'] +`</h5>
-                                    <p class="card-text">`+ item['nama_toko'] +`</p>
-                                    <a href="./viewitem.php?id=`+ item['id_item'] +`" class="btn btn-primary">More</a>
-                                </div>
-                            </div>
-                            `);
-                            col.append(isi);
-                            row.append(col);
-                            if(num % 3 == 0)
-                            {                                
-                                $("#item-list").append(row);
-                                row = $("<td></td>")
-                            }
-                        });
-                        if(num % 3 != 0)
-                        {
-                            $("#item-list").append(row);
-                        }
-                    }
-                });
-            }
             function LogOut()
             {
                 $.ajax({
@@ -86,16 +55,44 @@
                     <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
                 </div>
             </div>
-            <div id="item-list" class="item-list">
-                <!-- <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="toped.png" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">nama toko</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+            <?php
+                if($stmt->rowCount() == 1)
+                {
+                    $item = $stmt->fetch();?>
+                    <div id="item-list" class="item-list">
+                        <div>
+                            <label>Nama : </label>
+                            <input disabled value="<?php echo $item['nama_item']; ?>">
+                        </div>     
+                        <div>
+                            <img style="height: 300px;" src="<?php echo $item['gambar_filepath'] ?>">
+                        </div>                   
+                        <div>
+                            <label>Deskripsi : </label>
+                            <input disabled value="<?php echo $item['deskripsi']; ?>">
+                        </div>
+                        <div>
+                            <label>Kategori : </label>
+                            <input disabled value="<?php echo $item['kategori']; ?>">
+                        </div>
+                        <div>
+                            <label>Harga : </label>
+                            <input disabled value="<?php echo $item['harga']; ?>">
+                        </div>
+                        <div>
+                            <label>Stok : </label>
+                            <input disabled value="<?php echo $item['stok']; ?>">
+                        </div>
+                        <button class="btn btn-success">Add to Cart</button>
                     </div>
-                </div> -->
-            </div>
+            <?php }
+                else
+                {?>
+                    <div id="item-list" class="item-list">
+                        Item Unavailable
+                    </div>
+                <?php } ?>
+                    
             <!-- <div class="quick-menu">
                 <ul>
                     <li><i class="fa fa-share-square-o" aria-hidden="true"></i><p>Share</p></li>

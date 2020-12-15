@@ -21,9 +21,13 @@
         <script>
             function getItem()
             {
+                var search = $("#searchbar").val();
                 $.ajax({
-                    url: "./services/getitem.php",
+                    url: "./services/searchitem.php",
                     method: "POST",
+                    data: {
+                        search: search
+                    },
                     success: function(res){
                         $("#item-list").html('');
                         var num = 0;                        
@@ -72,21 +76,25 @@
             }
         </script>
     </head>
-    <body onload="getItem()">
+    <body>
         <div class="container">
             <div class="menu">
                 <ul>
                     <li class="logo"><img src="toped.png"></li>
-                    <li class="active"><a href="home.php">Home</a></li>
+                    <li><li class="active"><a href="home.php">Home</a></li></li>
                     <li>Cart</li>
-                    <li><a href="search.php">Search</a></li>
+                    <li class="active"><a href="search.php">Search</a></li>
                     <li>Contact</li>                    
                 </ul>
                 <div class="Logout">
                     <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
                 </div>
             </div>
-            <div id="item-list" class="item-list">
+            <div class="search">
+                <input type="text" id="searchbar">
+                <button type="text" class="btn btn-success" onclick="getItem()">Search</button>
+            </div>
+            <div id="item-list" class="item-list" style="margin-top: 3%">
                 <!-- <div class="card" style="width: 18rem;">
                     <img class="card-img-top" src="toped.png" alt="Card image cap">
                     <div class="card-body">

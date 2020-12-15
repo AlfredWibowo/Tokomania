@@ -3,9 +3,11 @@
     header("Content-Type: application/json");
     if($_SERVER['REQUEST_METHOD'] == "POST")
     {
-        $sql = "SELECT * FROM item i JOIN toko t ON i.id_toko = t.id_toko ORDER BY RAND() LIMIT 9";
+        $search = $_POST['search'];
+
+        $sql = "SELECT * FROM item i JOIN toko t ON i.id_toko = t.id_toko WHERE nama_item LIKE ?";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute();
+        $stmt->execute(['%'.$search.'%']);
 
         $result = array();
          while($row = $stmt->fetch()) {

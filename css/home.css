@@ -122,3 +122,9 @@ body{
 .item-list{
     margin-top: 10%;
 }
+.search{
+    margin-top: 10%;
+}
+.item-list td{
+    padding-right: 50px;
+}
