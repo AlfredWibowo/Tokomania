@@ -18,6 +18,12 @@
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+
+        <script>
+            function back(){
+                window.location.href = "home-toko.php";
+            }
+        </script>
     </head>
     <body>
         <form method="POST" action="../services/additem.php" enctype="multipart/form-data">
@@ -32,7 +38,6 @@
             <div class="form-group">
                 <label for="img"><b>Image</b></label><br>
                 <input type="file" name="img" required>
-                <button type="submit" class="btn btn-primary">Upload File</button>
             </div>
             <div class="form-group">
                 <label for="categ"><b>Category</b></label>
@@ -57,15 +62,13 @@
             </div>
             <!-- css inline block dong -->
             <div> 
-                <button class="btn btn-primary">Add Now</button>
+                <button type="submit" class="btn btn-primary">Add Now</button>
             </div>
             <!-- -->
         </form>
         <!-- css inline block dong -->
         <div>
-            <form action="home-toko.php">
-                <button class="btn btn-primary">Back</button>
-            </form>
+            <button class="btn btn-primary" onclick="back()" >Back</button>
         </div>
         <!-- -->
     </body>

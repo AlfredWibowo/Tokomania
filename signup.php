@@ -102,7 +102,7 @@
                     </div>
                     <div class="form-group">
                         <label for="confrimpassword">Confirm Password</label>
-                        <input onkeyup="CheckPassword()" type="password" class="form-control" name="confirmpassword" id="confirmpassword" placeholder="Password" required>
+                        <input onkeyup="CheckPass word()" type="password" class="form-control" name="confirmpassword" id="confirmpassword" placeholder="Password" required>
                     </div>
                     <p id="checkpass"></p>
                     <div class="form-group">

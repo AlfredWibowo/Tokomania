@@ -3,13 +3,13 @@
 
     if($_SERVER['REQUEST_METHOD'] == "POST"){
         $usernametoko = $_POST['nama_toko'];
-        $passwordtoko = $_POST['password'];
+        $passwordtoko = $_POST['passwordtoko'];
         $telptoko = $_POST['no_telp'];
-        $emailtoko = $_POST['email'];
+        $emailtoko = $_POST['emailtoko'];
         $confirmpassword = $_POST['confirmpassword'];
 
         if($usernametoko != '' && $passwordtoko != '' &&  $telptoko != ''  && $confirmpassword != ''){
-            if($password != $confirmpassword){
+            if($passwordtoko != $confirmpassword){
                 header("Location: ../toko/signuptoko.php?stat=2");
             }
             $check = "SELECT * FROM toko WHERE nama_toko = ?";
@@ -22,17 +22,17 @@
             else{
                 $insertdata = "INSERT INTO toko (nama_toko,no_telp,email,password) VALUES(?,?,?,?)";
                 $insertstmt = $pdo->prepare($insertdata);
-                $insertstmt->execute([$nama_toko,$no_telp,$emailtoko,$confirmpassword]);
+                $insertstmt->execute([$usernametoko,$telptoko,$emailtoko,$passwordtoko]);
                 $_SESSION['nama_toko'] = $usernametoko;
                 header("Location: ../toko/home-toko.php");
             }
         }
         else{
-            header("Location: ../toko/signuptoko.php?stat=1");
+            header("Location: ../toko/signuptoko.php?stat=1x");
         }    
            
     }
     else{
-        header("Location: ../toko/signuptoko.php?stat=1");
+        header("Location: ../toko/signuptoko.php?stat=1y");
     }
 ?>

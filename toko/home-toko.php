@@ -24,10 +24,44 @@
     flare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script>
-        function getItem()
-        {
+            function getItem()
+            {
+                $.ajax({
+                    url: "../services/getitemtoko.php",
+                    method: "POST",
+                    success: function(res){
+                        $("#item-list").html('');
+                        var num = 0;                        
+                        var row = $("<tr></tr>");
+                        res.forEach(function(item){
+                            num++;
+                            var col = $("<td></td>");
 
-        }
+                            var isi = $(`
+                            <div class="card" style="width: 18rem;">
+                                <img class="card-img-top" src="`+ item['gambar_filepath'] +`" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">`+ item['nama_item'] +`</h5>
+                                    <p class="card-text">`+ item['nama_toko'] +`</p>
+                                    <a href="edititemtoko.php?id=`+ item['id_item'] +`" class="btn btn-primary">More</a>
+                                </div>
+                            </div>
+                            `);
+                            col.append(isi);
+                            row.append(col);
+                            if(num % 3 == 0)
+                            {                                
+                                $("#item-list").append(row);
+                                row = $("<td></td>")
+                            }
+                        });
+                        if(num % 3 != 0)
+                        {
+                            $("#item-list").append(row);
+                        }
+                    }
+                });
+            }
         function LogOut()
         {
             $.ajax({
@@ -48,27 +82,28 @@
         })
     </script>
 </head>
-<body>
-<div class="container">
-            <div class="menu">
-                <ul>
-                    <li class="logo"><img src="toped.png"></li>
-                    <li>
-                        <a href="home-toko.php">Seller Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="addpage.php"> Add Product</a>
-                    </li>
-                    <li>Products</li>                 
-                </ul>
-                <div class="Logout">
-                    <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
+<body onload="getItem()">
+    <div class="container">
+                <div class="menu">
+                    <ul>
+                        <li class="logo"><img src="toped.png"></li>
+                        <li>
+                            <a href="home-toko.php">Seller Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="addpage.php"> Add Product</a>
+                        </li>               
+                    </ul>
+                    <div class="Logout">
+                        <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
+                    </div>
+                </div>
+                <div>
+                    <h4><b>Your Products</b></h4>
+                </div>
+                <div id="item-list" class="item-list">
+                
                 </div>
             </div>
-            <div id="item-list" class="item-list">
-                
-            </div>
-            
-        </div>
-</body>
+    </body>
 </html>

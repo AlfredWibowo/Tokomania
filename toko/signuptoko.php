@@ -1,6 +1,19 @@
 <?php
     include "../services/database.php";    
+    if(isset($_SESSION['nama_toko']))
+    {
+        header("Location: ./home-toko.php");
+    } 
 
+    if(isset($_GET['stat'])){
+        $error = $_GET['stat'];
+        if($error == 1){
+            echo "<script>alert('Try Again')</script>";
+        }
+         else if($error == 2){
+            echo "<script>alert('Password Incorrect')</script>";
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,14 +81,14 @@
     </script>
 </head>
 <body onload="CheckUsername()">
-   <form method="POST" action="../services/signuptoko.php>">
+   <form method="POST" action="../services/signuptoko.php">
         <div class="form-group">
-            <label for="username">Nama Toko</label>
+            <label for="nama-toko">Nama Toko</label>
             <input onkeyup="CheckUsername()" type="text" class="form-control" name="nama_toko" id="nama_toko" placeholder="Username" required>
             <p id="warning"></p>   
         </div>
         <div class="form-group">
-            <label for="password">Password</label>
+            <label for="passwordtoko">Password</label>
             <input onkeyup="CheckPassword()" type="password" class="form-control" name="passwordtoko" id="passwordtoko" placeholder="Password" required>
         </div>
         <div class="form-group">
@@ -84,25 +97,14 @@
         </div>
         <p id="checkpass"></p>
         <div class="form-group">
-            <label for="nama">Email</label>
+            <label for="emailtoko">Email</label>
             <input type="text" class="form-control" name="emailtoko" id="emailtoko" placeholder="Email" required>
         </div>
         <div class="form-group">
-            <label for="telp">No Telp</label>
-            <input type="text" class="form-control" name="telptoko" id="telptoko" placeholder="No Telp" required>
+            <label for="no_telp">No Telp</label>
+            <input type="text" class="form-control" name="no_telp" id="no_telp" placeholder="No Telp" required>
         </div>
         <button type="submit" class="btn btn-primary" id="signup" disabled>Sign Up</button>
-    </form>
-    <?php
-        if(isset($_GET['stat'])){
-            $error = $_GET['stat'];
-            if($error == 1){
-                echo "<script>alert('Try Again')</script>";
-            }
-            else if($error == 2){
-                echo "<script>alert('Password Incorrect')</script>";
-            }
-        }
-    ?>   
+    </form>   
 </body>
 </html>
