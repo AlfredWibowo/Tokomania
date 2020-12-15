@@ -1,5 +1,6 @@
 <?php
     include "../services/database.php";    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,8 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
      <script>        
-        function CheckUsername()
-        {
+        function CheckUsername() {
             var username = $("#nama_toko").val();
             console.log(username);
             $.ajax({
@@ -47,23 +47,19 @@
                 }
             });
         }
-        function CheckPassword()
-        {
-            var password = $("#password").val();
+        function CheckPassword() {
+            var password = $("#passwordtoko").val();
             var confirm = $("#confirmpassword").val();
-            if(password == '' || confirm == '')
-            {
+            if(password == '' || confirm == '') {
                 document.getElementById("checkpass").innerHTML = "";
                 document.getElementById("signup").disabled = true;
             }
-            else if(password != confirm)
-            {
+            else if(password != confirm) {
                 document.getElementById("checkpass").innerHTML = "Wrong";
                 document.getElementById("checkpass").style.color = "red";
                 document.getElementById("signup").disabled = true;
             }            
-            else if(password == confirm)
-            {
+            else if(password == confirm){
                 document.getElementById("checkpass").innerHTML = "OK";
                 document.getElementById("checkpass").style.color = "green";
                 document.getElementById("signup").disabled = false;
@@ -72,7 +68,7 @@
     </script>
 </head>
 <body onload="CheckUsername()">
-   <form method="POST" action="./services/signup.php">
+   <form method="POST" action="../services/signuptoko.php>">
         <div class="form-group">
             <label for="username">Nama Toko</label>
             <input onkeyup="CheckUsername()" type="text" class="form-control" name="nama_toko" id="nama_toko" placeholder="Username" required>
@@ -80,7 +76,7 @@
         </div>
         <div class="form-group">
             <label for="password">Password</label>
-            <input onkeyup="CheckPassword()" type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+            <input onkeyup="CheckPassword()" type="password" class="form-control" name="passwordtoko" id="passwordtoko" placeholder="Password" required>
         </div>
         <div class="form-group">
             <label for="confrimpassword">Confirm Password</label>
@@ -89,24 +85,21 @@
         <p id="checkpass"></p>
         <div class="form-group">
             <label for="nama">Email</label>
-            <input type="text" class="form-control" name="email" id="nama" placeholder="Nama" required>
+            <input type="text" class="form-control" name="emailtoko" id="emailtoko" placeholder="Email" required>
         </div>
         <div class="form-group">
             <label for="telp">No Telp</label>
-            <input type="text" class="form-control" name="telp" id="telp" placeholder="No Telp" required>
+            <input type="text" class="form-control" name="telptoko" id="telptoko" placeholder="No Telp" required>
         </div>
         <button type="submit" class="btn btn-primary" id="signup" disabled>Sign Up</button>
     </form>
     <?php
-        if(isset($_GET['stat']))
-        {
+        if(isset($_GET['stat'])){
             $error = $_GET['stat'];
-            if($error == 1)
-            {
+            if($error == 1){
                 echo "<script>alert('Try Again')</script>";
             }
-            else if($error == 2)
-            {
+            else if($error == 2){
                 echo "<script>alert('Password Incorrect')</script>";
             }
         }
