@@ -65,7 +65,7 @@
                             <input disabled value="<?php echo $item['nama_item']; ?>">
                         </div>     
                         <div>
-                            <img style="height: 300px;" src="<?php echo $item['gambar_filepath'] ?>">
+                            <img style="height: 300px;" src="img/<?php echo $item['gambar_filepath'] ?>">
                         </div>                   
                         <div>
                             <label>Deskripsi : </label>
