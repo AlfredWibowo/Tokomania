@@ -32,16 +32,42 @@
                     url: "./services/logout.php",
                     method: "GET",
                     success: function(res){
-                        console.log(res);
                         if(res == "logout"){
                             location.reload();
                         }
                     }
                 })
             }
+            function AddToCart()
+            {
+                console.log("masuk");
+                var quantity = $("#quantity").val();
+                var item = $("#item").val();
+                console.log(quantity);
+                console.log(item);
+                $.ajax({
+                    url: "./services/addtocart.php",
+                    method: "POST",
+                    data: {
+                        quantity: quantity,
+                        item: item
+                    },
+                    success: function(res){
+                        console.log(res);
+                            if(res == "success")
+                            {
+                                alert("Item Sudah ditambah");
+                            }
+                            else
+                            {
+                                alert("Try Again");
+                            }
+                    }
+                });
+            }
         </script>
     </head>
-    <body onload="getItem()">
+    <body>
         <div class="container">
             <div class="menu">
                 <ul>
@@ -63,6 +89,7 @@
                         <div>
                             <label>Nama : </label>
                             <input disabled value="<?php echo $item['nama_item']; ?>">
+                            <input type="hidden" id="item" value="<?php echo $item['id_item']; ?>">
                         </div>     
                         <div>
                             <img style="height: 300px;" src="img/<?php echo $item['gambar_filepath'] ?>">
@@ -83,7 +110,7 @@
                             <label>Stok : </label>
                             <input disabled value="<?php echo $item['stok']; ?>">
                         </div>
-                        <button class="btn btn-success">Add to Cart</button>
+                        <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Add to Cart</button>
                     </div>
             <?php }
                 else
@@ -92,25 +119,28 @@
                         Item Unavailable
                     </div>
                 <?php } ?>
-                    
-            <!-- <div class="quick-menu">
-                <ul>
-                    <li><i class="fa fa-share-square-o" aria-hidden="true"></i><p>Share</p></li>
-                    <li><i class="fa fa-history" aria-hidden="true"></i><p>History</p></li>
-                    <li><i class="fa fa-heart-o" aria-hidden="true"></i><p>Favorite</p></li>
-                    <li><i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        <p>Message</p></li>
-                </ul>
-                </div>
-                <div class="quick-social">
-                    <ul>
-                        <li><i class="fa fa-facebook-official" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-twitter-square" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-instagram" aria-hidden="true"></i></li>
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
 
-                    </ul>
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Add To Cart</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <label>Nama : </label>
+                            <input disabled value="<?php echo $item['nama_item']; ?>"><br>
+                            <label>Quantity : </label>
+                            <input type="number" name="quantity" id="quantity" value="1" min="1">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="AddToCart()">Add</button>
+                        </div>
                     </div>
-            </div> -->
+                </div>
+            </div>
         </div>
     </body>
 </html>
