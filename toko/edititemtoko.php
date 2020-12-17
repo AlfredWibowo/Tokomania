@@ -11,7 +11,7 @@
         $id_item = $_GET['id'];
         $sql = "SELECT * FROM item i JOIN toko t ON i.id_toko = t.id_toko WHERE i.id_item = ?";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([$id_item]);        
+        $stmt->execute([$id_item]);
     }
 ?>
 <html>
@@ -44,13 +44,15 @@
     <body onload="getItem()">
         <div class="container">
             <div class="menu">
-                <ul>
-                    <li class="logo"><img src="toped.png"></li>
-                    <li class="active"><a href="home.php">Home</a></li>
-                    <li>Cart</li>
-                    <li><a href="search.php">Search</a></li>
-                    <li>Contact</li>                    
-                </ul>
+                    <ul>
+                        <li class="logo"><img src="toped.png"></li>
+                        <li>
+                            <a href="home-toko.php">Seller Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="addpage.php"> Add Product</a>
+                        </li>               
+                    </ul>
                 <div class="Logout">
                     <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
                 </div>
@@ -59,32 +61,37 @@
                 if($stmt->rowCount() == 1)
                 {
                     $item = $stmt->fetch();?>
-                    <div id="item-list" class="item-list">
-                        <div>
-                            <label>Nama : </label>
-                            <input disabled value="<?php echo $item['nama_item']; ?>">
-                        </div>     
-                        <div>
-                            <img style="height: 300px;" src="<?php echo $item['gambar_filepath'] ?>">
-                        </div>                   
-                        <div>
-                            <label>Deskripsi : </label>
-                            <input disabled value="<?php echo $item['deskripsi']; ?>">
+                    <form action = "../services/updateitem.php" method="POST">
+                        <div id="item-list" class="item-list">
+                            <div>
+                                <label>Nama : </label>
+                                <input disabled value="<?php echo $item['nama_item']; ?>">
+                            </div>     
+                            <div>
+                                <img style="height: 300px;" src="../img/<?php echo $item['gambar_filepath'] ?>">
+                            </div>
+                            <div>
+                                <input type="hidden" name="uid" value="<?php echo $item['id_item']; ?>">
+                            </div>               
+                            <div>
+                                <label>Deskripsi : </label>
+                                <input name="udesc" value="<?php echo $item['deskripsi']; ?>">
+                            </div>
+                            <div>
+                                <label>Kategori : </label>
+                                <input value="<?php echo $item['kategori']; ?>">
+                            </div>
+                            <div>
+                                <label>Harga : </label>
+                                <input name="uprice" value="<?php echo $item['harga']; ?>">
+                            </div>
+                            <div>
+                                <label>Stok : </label>
+                                <input name="ustock" value="<?php echo $item['stok']; ?>">
+                            </div>
+                            <button class="btn btn-success">Edit Product</button>
                         </div>
-                        <div>
-                            <label>Kategori : </label>
-                            <input disabled value="<?php echo $item['kategori']; ?>">
-                        </div>
-                        <div>
-                            <label>Harga : </label>
-                            <input disabled value="<?php echo $item['harga']; ?>">
-                        </div>
-                        <div>
-                            <label>Stok : </label>
-                            <input disabled value="<?php echo $item['stok']; ?>">
-                        </div>
-                        <button class="btn btn-success">Edit Product</button>
-                    </div>
+                    </form>
             <?php }
                 else
                 {?>
