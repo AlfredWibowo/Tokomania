@@ -51,7 +51,7 @@
                             if(num % 3 == 0)
                             {                                
                                 $("#item-list").append(row);
-                                row = $("<td></td>")
+                                row = $("<tr></tr>")
                             }
                         });
                         if(num % 3 != 0)

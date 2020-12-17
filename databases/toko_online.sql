@@ -167,8 +167,8 @@ ALTER TABLE `toko`
 -- Constraints for table `detail_pembelian`
 --
 ALTER TABLE `detail_pembelian`
-  ADD CONSTRAINT `FK_item` FOREIGN KEY (`id_item`) REFERENCES `item` (`id_item`),
-  ADD CONSTRAINT `FK_pembelian` FOREIGN KEY (`id_pembelian`) REFERENCES `pembelian` (`id_pembelian`);
+  ADD CONSTRAINT `FK_item` FOREIGN KEY (`id_item`) REFERENCES `item` (`id_item`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_pembelian` FOREIGN KEY (`id_pembelian`) REFERENCES `pembelian` (`id_pembelian`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `item`
@@ -180,7 +180,7 @@ ALTER TABLE `item`
 -- Constraints for table `pembelian`
 --
 ALTER TABLE `pembelian`
-  ADD CONSTRAINT `pembelian_ibfk_1` FOREIGN KEY (`id_pembeli`) REFERENCES `pembeli` (`id_pembeli`);
+  ADD CONSTRAINT `pembelian_ibfk_1` FOREIGN KEY (`id_pembeli`) REFERENCES `pembeli` (`id_pembeli`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
