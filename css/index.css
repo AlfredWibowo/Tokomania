@@ -2,13 +2,25 @@ body {
    background-color: #c6e686; 
 }
 
-.container-fluid {
-   margin-top: 50px;
+.container {
+   margin-top: 15px; 
+}
+
+.title {
+   padding-top: 10px;
+   text-align: center;
 }
 
 .row {
+   margin-top: 100px;
    margin-left: auto;
    margin-right: auto;
    background-color: white;
-   width: 90%;
+   width: 80%;
+   text-align: center;
+}
+
+#form {
+   margin-left: auto;
+   margin-right: auto;
 }
