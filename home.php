@@ -63,7 +63,6 @@
                     url: "./services/logout.php",
                     method: "GET",
                     success: function(res){
-                        console.log(res);
                         if(res == "logout"){
                             location.reload();
                         }
