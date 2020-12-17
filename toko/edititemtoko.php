@@ -26,6 +26,26 @@
         <link rel="stylesheet" href="https://cdnjs.cloud
         flare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script>
+            function deleteItem(){
+                var id = $("#uid").val();
+                $.ajax({
+                    url: "../services/deleteitemtoko.php",
+                    method:"POST",
+                    data:{
+                        id: id
+                    },
+                    success: function(res){
+                        console.log(res);
+                        if(res == "success"){
+                            alert("Product Deleted");
+                        }
+                        else if(res== "failed"){
+                            alert("Something's Wrong");
+                        }
+                    }
+                });
+            }
+
             function LogOut()
             {
                 $.ajax({
@@ -71,7 +91,7 @@
                                 <img style="height: 300px;" src="../img/<?php echo $item['gambar_filepath'] ?>">
                             </div>
                             <div>
-                                <input type="hidden" name="uid" value="<?php echo $item['id_item']; ?>">
+                                <input type="hidden" id="uid" name="uid" value="<?php echo $item['id_item']; ?>">
                             </div>               
                             <div>
                                 <label>Deskripsi : </label>
@@ -90,6 +110,7 @@
                                 <input name="ustock" value="<?php echo $item['stok']; ?>">
                             </div>
                             <button class="btn btn-success">Edit Product</button>
+                            <button class="btn btn-success" onclick=deleteItem()>Delete Product</button>
                         </div>
                     </form>
             <?php }

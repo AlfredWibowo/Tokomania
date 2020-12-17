@@ -1,6 +1,6 @@
 <?php
     include "../services/database.php";    
-    if(isset($_SESSION['nama_toko']))
+    if(isset($_SESSION['usernametoko']))
     {
         header("Location: ./home-toko.php");
     } 
