@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2020 at 10:33 AM
+-- Generation Time: Dec 17, 2020 at 04:02 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -30,7 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `detail_pembelian` (
   `id_pembelian` int(10) NOT NULL,
   `id_item` int(10) NOT NULL,
-  `jumlah` int(25) NOT NULL
+  `jumlah` int(25) NOT NULL,
+  `status` int(5) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
