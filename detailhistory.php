@@ -1,11 +1,12 @@
 <?php
     include "./services/database.php";
-    if(!isset($_SESSION['username']))
+    if($_SERVER['REQUEST_METHOD'] == "GET")
     {
-        header("Location: index.php");
-        exit();
-    } 
-    $username = $_SESSION['username'];
+        $id = $_GET['id'];
+        $sql = "SELECT * FROM detail_pembelian dp JOIN item i ON dp.id_item = i.id_item WHERE id_pembelian = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$id]);
+    }
 ?>
 <html>
     <head>
@@ -80,9 +81,24 @@
                     <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
                 </div>
             </div>
-            <input type="hidden" id="pembeli" value="<?php echo $username; ?>"></input>
             <div id="item-list" class="item-list">
-
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>Item</td>
+                            <td>Jumlah</td>
+                            <td>Total Harga</td>
+                        </tr>
+                    </thead>
+                <?php
+                    while($row = $stmt->fetch()){?>
+                        <tr>
+                            <td><?php echo $row['nama_item']; ?></td>
+                            <td><?php echo $row['jumlah'] ?></td>
+                            <td><?php echo ($row['jumlah'] * $row['harga']) ?></td>
+                        </tr>
+                <?php } ?>                
+                </table>
             </div>
         </div>
     </body>
