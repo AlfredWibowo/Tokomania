@@ -72,14 +72,22 @@
     </head>
     <body onload="History()">
         <div class="container">
-            <div class="menu">
-                <ul>
-                    <li class="logo"><img src="toped.png"></li>
-                    <li class="active"><a href="home.php">Home</a></li>
-                    <li>Cart</li>
-                    <li><a href="search.php">Search</a></li>
-                    <li><a href="history-toko.php">History</a></li>                    
-                </ul>
+            <div class="menu"> 
+                    <ul>
+                        <li class="logo"><img src="toped.png"></li>
+                        <li>
+                            <a href="home-toko.php">Seller Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="addpage.php"> Add Product</a>
+                        </li>
+                        <li>
+                            <a href="">Sales</a>
+                        </li>
+                        <li>
+                            <a href="history-toko.php"> History</a>
+                        </li>                 
+                    </ul>
                 <div class="Logout">
                     <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
                 </div>

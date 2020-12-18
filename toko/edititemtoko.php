@@ -63,7 +63,7 @@
     </head>
     <body onload="getItem()">
         <div class="container">
-            <div class="menu">
+            <div class="menu"> 
                     <ul>
                         <li class="logo"><img src="toped.png"></li>
                         <li>
@@ -71,7 +71,13 @@
                         </li>
                         <li>
                             <a href="addpage.php"> Add Product</a>
-                        </li>               
+                        </li>
+                        <li>
+                            <a href="">Sales</a>
+                        </li>
+                        <li>
+                            <a href="history-toko.php"> History</a>
+                        </li>                 
                     </ul>
                 <div class="Logout">
                     <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
