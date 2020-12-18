@@ -23,7 +23,7 @@
                 $insertdata = "INSERT INTO toko (nama_toko,no_telp,email,password) VALUES(?,?,?,?)";
                 $insertstmt = $pdo->prepare($insertdata);
                 $insertstmt->execute([$usernametoko,$telptoko,$emailtoko,$passwordtoko]);
-                $_SESSION['nama_toko'] = $usernametoko;
+                $_SESSION['usernametoko'] = $usernametoko;
                 header("Location: ../toko/home-toko.php");
             }
         }

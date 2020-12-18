@@ -92,7 +92,10 @@
                         </li>
                         <li>
                             <a href="addpage.php"> Add Product</a>
-                        </li>               
+                        </li>
+                        <li>
+                            <a href="history-toko.php"> History</a>
+                        </li>                 
                     </ul>
                     <div class="Logout">
                         <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
