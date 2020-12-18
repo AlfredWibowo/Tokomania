@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 17, 2020 at 04:02 PM
+-- Generation Time: Dec 18, 2020 at 02:06 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -60,7 +60,7 @@ CREATE TABLE `item` (
 CREATE TABLE `pembeli` (
   `id_pembeli` int(10) NOT NULL,
   `nama` varchar(50) DEFAULT NULL,
-  `no_telp` int(15) DEFAULT NULL,
+  `no_telp` varchar(20) DEFAULT NULL,
   `alamat` text DEFAULT NULL,
   `username` varchar(50) DEFAULT NULL,
   `password` text DEFAULT NULL
@@ -146,7 +146,7 @@ ALTER TABLE `item`
 -- AUTO_INCREMENT for table `pembeli`
 --
 ALTER TABLE `pembeli`
-  MODIFY `id_pembeli` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pembeli` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pembelian`

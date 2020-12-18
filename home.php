@@ -79,7 +79,7 @@
                     <li class="active"><a href="home.php">Home</a></li>
                     <li>Cart</li>
                     <li><a href="search.php">Search</a></li>
-                    <li>Contact</li>                    
+                    <li><a href="history.php">History</a></li>                    
                 </ul>
                 <div class="Logout">
                     <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
