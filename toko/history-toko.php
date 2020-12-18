@@ -1,6 +1,6 @@
 <?php
     include "./services/database.php";
-    if(!isset($_SESSION['username']))
+    if(!isset($_SESSION['usernametoko']))
     {
         header("Location: index.php");
         exit();
