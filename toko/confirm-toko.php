@@ -23,7 +23,7 @@
             {
                 var pembeli = $("#pembeli").val();
                 $.ajax({
-                    url: "../services/viewhistory-toko.php",
+                    url: "../services/viewconfirm-toko.php",
                     method: "POST",
                     data: {
                         usernametoko: pembeli
@@ -48,6 +48,7 @@
                                 <td>` + item['jumlah'] + `</td>
                                 <td>` + item['username'] + `</td>
                                 <td>` + item['harga'] + `</td>
+                                <td><a class="btn btn-primary">Confirm</a></td>
                                 </tr>
                             `)                           
                             table.append(html);
@@ -86,10 +87,10 @@
                         </li>
                         <li>
                             <a href="history-toko.php"> History</a>
-                        </li>
+                        </li>    
                         <li>
                             <a href="confirm-toko.php"> Confirm</a>
-                        </li>                 
+                        </li>               
                     </ul>
                 <div class="Logout">
                     <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
