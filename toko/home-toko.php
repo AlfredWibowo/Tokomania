@@ -98,6 +98,9 @@
                         </li>
                         <li>
                             <a href="history-toko.php"> History</a>
+                        </li>
+                        <li>
+                            <?php echo '<a href="profiletoko.php?id='. $username .'">Profile</a>'?>
                         </li>        
                     </ul>
                     <div class="Logout">

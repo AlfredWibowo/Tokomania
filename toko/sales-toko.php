@@ -32,6 +32,7 @@
                         if(res == "success")
                         {
                             alert("Item berhasil confirm");
+                            History();
                         }
                         else
                         {
@@ -52,14 +53,15 @@
                         console.log(res);
                         if(res == "success")
                         {
-                            alert("Item dicancle");
-                            
+                            alert("Item dicancel");
+                            History();
                         }
                         else
                         {
                             alert("Try Again");
                         }
                     }
+                    
                 });
             }  
             function History()
