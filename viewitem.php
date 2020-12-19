@@ -40,7 +40,6 @@
             }
             function AddToCart()
             {
-                console.log("masuk");
                 var quantity = $("#quantity").val();
                 var item = $("#item").val();
                 console.log(quantity);
@@ -57,6 +56,30 @@
                             if(res == "success")
                             {
                                 alert("Item Sudah ditambah");
+                            }
+                            else
+                            {
+                                alert("Try Again");
+                            }
+                    }
+                });
+            }
+            function BuyNow()
+            {
+                var quantity = $("#quantity").val();
+                var item = $("#item").val();
+                $.ajax({
+                    url: "./services/buynow.php",
+                    method: "POST",
+                    data: {
+                        quantity: quantity,
+                        item: item
+                    },
+                    success: function(res){
+                        console.log(res);
+                            if(res == "success")
+                            {
+                                alert("Item Sudah dibeli");
                             }
                             else
                             {
@@ -112,6 +135,7 @@
                             <input disabled value="<?php echo $item['stok']; ?>">
                         </div>
                         <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Add to Cart</button>
+                        <button class="btn btn-success" data-toggle="modal" data-target="#buynowmodal">Buy Now</button>
                     </div>
             <?php }
                 else
@@ -138,6 +162,28 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal" onclick="AddToCart()">Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div id="buynowmodal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Buy Now</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <label>Nama : </label>
+                            <input disabled value="<?php echo $item['nama_item']; ?>"><br>
+                            <label>Quantity : </label>
+                            <input type="number" name="quantity" id="quantity" value="1" min="1">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="BuyNow()">Buy Now</button>
                         </div>
                     </div>
                 </div>

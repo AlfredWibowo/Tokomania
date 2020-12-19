@@ -19,40 +19,7 @@
         <link rel="stylesheet" href="./css/home.css">
         <link rel="stylesheet" href="https://cdnjs.cloud
         flare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script>  
-            function ViewDetail(id)
-            {
-                window.href = "./detailhistory?id=" + id;
-            }
-            function History()
-            {
-                var pembeli = $("#pembeli").val();
-                $.ajax({
-                    url: "./services/viewhistory.php",
-                    method: "POST",
-                    data: {
-                        username: pembeli
-                    },
-                    success: function(res){
-                        console.log(res);
-                         $("#item-list").html('');
-                         var table = $("<table class='table'></table>");
-                         var title = $("<thead><tr><td>Id Pembelian</td><td>Tanggal Pembelian</td></tr></thead>");
-                         table.append(title);
-                         res.forEach(function(item){
-                            var html = $(`
-                                <tr>
-                                <td>`+ item['id_pembelian'] +`</td>
-                                <td>` + item['tanggal'] + `</td>
-                                <td><a href="./detailhistory.php?id=`+ item['id_pembelian'] +`" class="btn btn-primary">Detail</a></td>
-                                </tr>
-                            `)                           
-                            table.append(html);
-                         });
-                         $("#item-list").append(table);
-                    }
-                });
-            }         
+        <script>   
             function LogOut()
             {
                 $.ajax({
@@ -67,7 +34,7 @@
             }
         </script>
     </head>
-    <body onload="History()">
+    <body>
         <div class="container">
             <div class="menu">
                 <ul>
@@ -89,6 +56,7 @@
                             <td>Item</td>
                             <td>Jumlah</td>
                             <td>Total Harga</td>
+                            <td>Status</td>
                         </tr>
                     </thead>
                 <?php
@@ -97,6 +65,20 @@
                             <td><?php echo $row['nama_item']; ?></td>
                             <td><?php echo $row['jumlah'] ?></td>
                             <td><?php echo ($row['jumlah'] * $row['harga']) ?></td>
+                            <td><?php 
+                                if($row['status'] == 0)
+                                {
+                                    echo "<p style='color:yellow;'>Waiting</p>";
+                                }
+                                else if($row['status'] == 1)
+                                {
+                                    echo "<p style='color:green;'>Confirmed</p>";
+                                }
+                                else if($row['status'] == 2)
+                                {
+                                    echo "<p style='color:red;'>Canceled</p>";
+                                }
+                            ?></td>
                         </tr>
                 <?php } ?>                
                 </table>
