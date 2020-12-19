@@ -27,8 +27,7 @@
 
             $pembelianstmt->execute([$data['id_pembeli'],0]);
             $idpembelian = $pembelianstmt->fetch();
-        }
-
+        }        
         $detailsql = "INSERT INTO detail_pembelian (id_pembelian,id_item,jumlah) VALUES(?,?,?)";
         $detailstmt = $pdo->prepare($detailsql);
         $detailstmt->execute([$idpembelian['id_pembelian'],$item,$quantity]);

@@ -81,7 +81,7 @@
                 <ul>
                     <li class="logo"><img src="toped.png"></li>
                     <li><li class="active"><a href="home.php">Home</a></li></li>
-                    <li>Cart</li>
+                    <li><a href="cart.php">Cart</a></li>
                     <li class="active"><a href="search.php">Search</a></li>
                     <li><a href="history.php">History</a></li>                    
                 </ul>
