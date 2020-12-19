@@ -1,5 +1,16 @@
 <?php
     include "./database.php";
+    function RandomString()
+    {
+        $characters =
+            '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $randstring = '';
+        for ($i = 0; $i < 10; $i++) {
+            $randchar = substr($characters, rand(0, strlen($characters)), 1);
+            $randstring = $randstring . $randchar;
+        }
+        return $randstring;
+    }
      if($_SERVER['REQUEST_METHOD'] == 'POST')
      {
          $productname = $_POST['pname'];
@@ -12,7 +23,15 @@
          $result->execute([$namatoko]);
          $x=$result->fetch();
         
-         $filename = $namatoko.$productname.".png"; // filename pake namatoko+productname
+         $randomstring = RandomString();
+         $path = $_FILES['img']['name'];
+         $ext = pathinfo($path, PATHINFO_EXTENSION);
+         if($ext != "png" && $ext != "jpg")
+         {
+             header("Location: ../toko/addpage.php?stat=1");
+             exit();
+         }
+         $filename = $namatoko.$productname."_".$randomstring.".".$ext; // filename pake namatoko+productname
          $destination = "../img/".$filename;
          move_uploaded_file($file['tmp_name'],$destination);
          $category = $_POST['categ'];

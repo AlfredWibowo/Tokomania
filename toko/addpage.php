@@ -6,6 +6,13 @@
         exit();
     } 
     $username = $_SESSION['usernametoko'];
+    if(isset($_GET['stat']))
+    {
+        if($_GET['stat'] == 1)
+        {
+            echo "<script>alert('Hanya support tipe file .jpg dan .png')</script>";
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +44,7 @@
             </div>
             <div class="form-group">
                 <label for="img"><b>Image</b></label><br>
-                <input type="file" name="img" accept="image/*" required>
+                <input type="file" name="img" accept=".jpg,.png" required>
             </div>
             <div class="form-group">
                 <label for="categ"><b>Category</b></label>
