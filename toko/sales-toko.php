@@ -23,7 +23,7 @@
             {
                 var pembeli = $("#pembeli").val();
                 $.ajax({
-                    url: "../services/viewconfirm-toko.php",
+                    url: "../services/viewsales-toko.php",
                     method: "POST",
                     data: {
                         usernametoko: pembeli
@@ -31,13 +31,14 @@
                     success: function(res){
                         console.log(res);
                          $("#item-list").html('');
-                         var table = $("<table class='table'></table>");
-                         var title = $(`<thead><tr>
+                         var table = $("<table class='table table-striped'></table>");
+                         var title = $(`<thead class='thead-dark'><tr>
                                         <td>Id Pembelian</td>
                                         <td>Tanggal Pembelian</td>
                                         <td>jumlah barang</td>
                                         <td>Nama Pembeli</td>
                                         <td>Harga</td>
+                                        <td colspan="2" style="text-align: center">Status</td>
                                         </tr></thead>`);
                          table.append(title);
                          res.forEach(function(item){
@@ -49,6 +50,7 @@
                                 <td>` + item['username'] + `</td>
                                 <td>` + item['harga'] + `</td>
                                 <td><a class="btn btn-primary">Confirm</a></td>
+                                <td><a class="btn btn-warning">Cancle</a></td>
                                 </tr>
                             `)                           
                             table.append(html);
@@ -83,14 +85,11 @@
                             <a href="addpage.php"> Add Product</a>
                         </li>
                         <li>
-                            <a href="">Sales</a>
+                            <a href="sales-toko.php">Sales</a>
                         </li>
                         <li>
                             <a href="history-toko.php"> History</a>
-                        </li>    
-                        <li>
-                            <a href="confirm-toko.php"> Confirm</a>
-                        </li>               
+                        </li>              
                     </ul>
                 <div class="Logout">
                     <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>

@@ -38,9 +38,20 @@
                                         <td>jumlah barang</td>
                                         <td>Nama Pembeli</td>
                                         <td>Harga</td>
+                                        <td>Status</td>
                                         </tr></thead>`);
                          table.append(title);
                          res.forEach(function(item){
+                            var status = ""
+
+                            if(item['dps'] == 1) {
+                                status = "Confirmed";
+                            }
+                            else if(item['dps'] == 2) {
+                                status = "Cancled"
+                            }
+                            console.log(item['status']);
+
                             var html = $(`
                                 <tr>
                                 <td>`+ item['id_pembelian'] +`</td>
@@ -48,6 +59,7 @@
                                 <td>` + item['jumlah'] + `</td>
                                 <td>` + item['username'] + `</td>
                                 <td>` + item['harga'] + `</td>
+                                <td>` + status + `</td>
                                 </tr>
                             `)                           
                             table.append(html);
@@ -82,14 +94,11 @@
                             <a href="addpage.php"> Add Product</a>
                         </li>
                         <li>
-                            <a href="">Sales</a>
+                            <a href="sales-toko.php">Sales</a>
                         </li>
                         <li>
                             <a href="history-toko.php"> History</a>
-                        </li>
-                        <li>
-                            <a href="confirm-toko.php"> Confirm</a>
-                        </li>                 
+                        </li>    
                     </ul>
                 <div class="Logout">
                     <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
