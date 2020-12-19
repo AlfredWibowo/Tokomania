@@ -77,6 +77,9 @@
                         </li>
                         <li>
                             <a href="history-toko.php"> History</a>
+                        </li>
+                        <li>
+                            <a href="confirm-toko.php"> Confirm</a>
                         </li>                 
                     </ul>
                 <div class="Logout">
