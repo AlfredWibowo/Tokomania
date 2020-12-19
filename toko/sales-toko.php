@@ -18,7 +18,50 @@
         <link rel="stylesheet" href="../css/home.css">
         <link rel="stylesheet" href="https://cdnjs.cloud
         flare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script>  
+        <script>
+            function Confirm(id)
+            {
+                $.ajax({
+                    url: "../services/confirmitem-toko.php",
+                    method: "POST",
+                    data: {
+                        id: id
+                    },
+                    success: function(res){
+                        console.log(res);
+                        if(res == "success")
+                        {
+                            alert("Item berhasil confirm");
+                        }
+                        else
+                        {
+                            alert("Try again");
+                        }
+                    }
+                })
+            }
+            function Cancel(id)
+            {
+                $.ajax({
+                    url: "../services/cancelitem-toko.php",
+                    method: "POST",
+                    data: {
+                        id: id,
+                    },
+                    success: function(res){
+                        console.log(res);
+                        if(res == "success")
+                        {
+                            alert("Item dicancle");
+                            
+                        }
+                        else
+                        {
+                            alert("Try Again");
+                        }
+                    }
+                });
+            }  
             function History()
             {
                 var pembeli = $("#pembeli").val();
@@ -49,8 +92,8 @@
                                 <td>` + item['jumlah'] + `</td>
                                 <td>` + item['username'] + `</td>
                                 <td>` + item['harga'] + `</td>
-                                <td><a class="btn btn-primary">Confirm</a></td>
-                                <td><a class="btn btn-warning">Cancle</a></td>
+                                <td><a class="btn btn-success" onclick="Confirm(` + item['id_detail'] + `)">Confirm</a></td>
+                                <td><a class="btn btn-warning" onclick="Cancel(` + item['id_detail'] + `)">Cancel</a></td>
                                 </tr>
                             `)                           
                             table.append(html);
