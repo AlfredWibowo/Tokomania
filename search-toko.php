@@ -1,12 +1,11 @@
 <?php
     include "./services/database.php";
-    if($_SERVER['REQUEST_METHOD'] == "GET")
+    if(!isset($_SESSION['username']))
     {
-        $id = $_GET['id'];
-        $sql = "SELECT * FROM detail_pembelian dp JOIN item i ON dp.id_item = i.id_item WHERE id_pembelian = ?";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$id]);
-    }
+        header("Location: index.php");
+        exit();
+    } 
+    $username = $_SESSION['username'];
 ?>
 <html>
     <head>
@@ -19,40 +18,43 @@
         <link rel="stylesheet" href="./css/home.css">
         <link rel="stylesheet" href="https://cdnjs.cloud
         flare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script>  
-            function ViewDetail(id)
+        <script>
+            function getItem()
             {
-                window.href = "./detailhistory?id=" + id;
-            }
-            function History()
-            {
-                var pembeli = $("#pembeli").val();
+                var search = $("#searchbar").val();
                 $.ajax({
-                    url: "./services/viewhistory.php",
+                    url: "./services/search-toko.php",
                     method: "POST",
                     data: {
-                        username: pembeli
+                        search: search
                     },
                     success: function(res){
-                        console.log(res);
+                         console.log(res);
                          $("#item-list").html('');
                          var table = $("<table class='table'></table>");
-                         var title = $("<thead><tr><td>Id Pembelian</td><td>Tanggal Pembelian</td></tr></thead>");
+                         var title = $(`
+                         <thead>
+                            <tr>
+                                <td>Id Toko</td>
+                                <td>Nama Toko</td>
+                                <td>View</td>
+                            </tr>
+                        </thead>`);
                          table.append(title);
                          res.forEach(function(item){
                             var html = $(`
                                 <tr>
-                                <td>`+ item['id_pembelian'] +`</td>
-                                <td>` + item['tanggal'] + `</td>
-                                <td><a href="./detailhistory.php?id=`+ item['id_pembelian'] +`" class="btn btn-primary">Detail</a></td>
+                                <td>`+ item['id_toko'] +`</td>
+                                <td>` + item['nama_toko'] + `</td>
+                                <td><a href="./viewtoko.php?id=`+ item['id_toko'] +`" class="btn btn-primary">View</a></td>
                                 </tr>
-                            `)                           
+                            `);                           
                             table.append(html);
                          });
                          $("#item-list").append(table);
                     }
                 });
-            }         
+            }
             function LogOut()
             {
                 $.ajax({
@@ -67,14 +69,14 @@
             }
         </script>
     </head>
-    <body onload="History()">
+    <body>
         <div class="container">
             <div class="menu">
                 <ul>
                     <li class="logo"><img src="toped.png"></li>
-                    <li class="active"><a href="home.php">Home</a></li>
+                    <li><li class="active"><a href="home.php">Home</a></li></li>
                     <li><a href="cart.php">Cart</a></li>
-                    <li><a href="search.php">Search</a></li>
+                    <li class="active"><a href="search.php">Search</a></li>
                     <li><a href="search-toko.php">Search Toko</a></li>
                     <li><a href="history.php">History</a></li>                    
                 </ul>
@@ -82,24 +84,12 @@
                     <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
                 </div>
             </div>
-            <div id="item-list" class="item-list">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <td>Item</td>
-                            <td>Jumlah</td>
-                            <td>Total Harga</td>
-                        </tr>
-                    </thead>
-                <?php
-                    while($row = $stmt->fetch()){?>
-                        <tr>
-                            <td><?php echo $row['nama_item']; ?></td>
-                            <td><?php echo $row['jumlah'] ?></td>
-                            <td><?php echo ($row['jumlah'] * $row['harga']) ?></td>
-                        </tr>
-                <?php } ?>                
-                </table>
+            <div class="search">
+                <input type="text" id="searchbar">
+                <button type="text" class="btn btn-success" onclick="getItem()">Search</button>
+            </div>
+            <div id="item-list" class="item-list" style="margin-top: 3%">
+
             </div>
         </div>
     </body>

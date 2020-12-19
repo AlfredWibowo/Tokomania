@@ -6,6 +6,16 @@
         exit();
     } 
     $username = $_SESSION['username'];
+
+    if(isset($_GET['id']))
+    {
+        $id_toko = $_GET['id'];
+        $sql = "SELECT * FROM toko WHERE id_toko = ?";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$id_toko]); 
+        
+        $toko = $stmt->fetch();
+    }
 ?>
 <html>
     <head>
@@ -21,9 +31,13 @@
         <script>
             function getItem()
             {
+                var idtoko = $("#idtoko").val();
                 $.ajax({
-                    url: "./services/getitem.php",
+                    url: "./services/viewtokoitem.php",
                     method: "POST",
+                    data: {
+                        idtoko: idtoko
+                    },
                     success: function(res){
                         $("#item-list").html('');
                         var num = 0;                        
@@ -34,10 +48,9 @@
 
                             var isi = $(`
                             <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="` + `img/`+ item['gambar_filepath'] +`" alt="Card image cap">
+                                <img class="card-img-top" src="./img/`+ item['gambar_filepath'] +`" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">`+ item['nama_item'] +`</h5>
-                                    <p class="card-text">`+ item['nama_toko'] +`</p>
                                     <p class="card-text">Rp `+ item['harga'] +`</p>
                                     <a href="./viewitem.php?id=`+ item['id_item'] +`" class="btn btn-primary">More</a>
                                 </div>
@@ -77,9 +90,9 @@
             <div class="menu">
                 <ul>
                     <li class="logo"><img src="toped.png"></li>
-                    <li class="active"><a href="home.php">Home</a></li>
+                    <li><li class="active"><a href="home.php">Home</a></li></li>
                     <li><a href="cart.php">Cart</a></li>
-                    <li><a href="search.php">Search</a></li>
+                    <li class="active"><a href="search.php">Search</a></li>
                     <li><a href="search-toko.php">Search Toko</a></li>
                     <li><a href="history.php">History</a></li>                    
                 </ul>
@@ -87,34 +100,11 @@
                     <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
                 </div>
             </div>
-            <div id="item-list" class="item-list">
-                <!-- <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="toped.png" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">nama toko</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div> -->
-            </div>
-            <!-- <div class="quick-menu">
-                <ul>
-                    <li><i class="fa fa-share-square-o" aria-hidden="true"></i><p>Share</p></li>
-                    <li><i class="fa fa-history" aria-hidden="true"></i><p>History</p></li>
-                    <li><i class="fa fa-heart-o" aria-hidden="true"></i><p>Favorite</p></li>
-                    <li><i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        <p>Message</p></li>
-                </ul>
-                </div>
-                <div class="quick-social">
-                    <ul>
-                        <li><i class="fa fa-facebook-official" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-twitter-square" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-instagram" aria-hidden="true"></i></li>
+            <input type="hidden" id="idtoko" value="<?php echo $toko['id_toko']; ?>">
+            <H3 style="margin-top:10%; text-align:center;"><?php echo $toko['nama_toko']; ?></H3>
+            <div id="item-list" class="item-list" style="margin-top: 3%">
 
-                    </ul>
-                    </div>
-            </div> -->
+            </div>
         </div>
     </body>
 </html>

@@ -38,10 +38,11 @@
 
                             var isi = $(`
                             <div class="card" style="width: 18rem;">
-                                <img class="card-img-top" src="`+ item['gambar_filepath'] +`" alt="Card image cap">
+                                <img class="card-img-top" src="./img/`+ item['gambar_filepath'] +`" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">`+ item['nama_item'] +`</h5>
                                     <p class="card-text">`+ item['nama_toko'] +`</p>
+                                    <p class="card-text">Rp `+ item['harga'] +`</p>
                                     <a href="./viewitem.php?id=`+ item['id_item'] +`" class="btn btn-primary">More</a>
                                 </div>
                             </div>
@@ -83,6 +84,7 @@
                     <li><li class="active"><a href="home.php">Home</a></li></li>
                     <li><a href="cart.php">Cart</a></li>
                     <li class="active"><a href="search.php">Search</a></li>
+                    <li><a href="search-toko.php">Search Toko</a></li>
                     <li><a href="history.php">History</a></li>                    
                 </ul>
                 <div class="Logout">

@@ -75,6 +75,7 @@
                     <li class="active"><a href="home.php">Home</a></li>
                     <li><a href="cart.php">Cart</a></li>
                     <li><a href="search.php">Search</a></li>
+                    <li><a href="search-toko.php">Search Toko</a></li>
                     <li><a href="history.php">History</a></li>                      
                 </ul>
                 <div class="Logout">

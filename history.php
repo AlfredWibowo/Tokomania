@@ -45,7 +45,7 @@
                                 <td>` + item['tanggal'] + `</td>
                                 <td><a href="./detailhistory.php?id=`+ item['id_pembelian'] +`" class="btn btn-primary">Detail</a></td>
                                 </tr>
-                            `)                           
+                            `);                           
                             table.append(html);
                          });
                          $("#item-list").append(table);
@@ -74,6 +74,7 @@
                     <li class="active"><a href="home.php">Home</a></li>
                     <li><a href="cart.php">Cart</a></li>
                     <li><a href="search.php">Search</a></li>
+                    <li><a href="search-toko.php">Search Toko</a></li>
                     <li><a href="history.php">History</a></li>                    
                 </ul>
                 <div class="Logout">

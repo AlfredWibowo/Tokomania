@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 19, 2020 at 06:51 AM
+-- Generation Time: Dec 19, 2020 at 01:35 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.0
 
@@ -89,7 +89,7 @@ CREATE TABLE `pembelian` (
 CREATE TABLE `toko` (
   `id_toko` int(10) NOT NULL,
   `nama_toko` varchar(25) NOT NULL,
-  `no_telp` int(15) NOT NULL,
+  `no_telp` varchar(20) NOT NULL,
   `email` varchar(20) NOT NULL,
   `password` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -147,7 +147,7 @@ ALTER TABLE `detail_pembelian`
 -- AUTO_INCREMENT for table `item`
 --
 ALTER TABLE `item`
-  MODIFY `id_item` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_item` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pembeli`
@@ -165,7 +165,7 @@ ALTER TABLE `pembelian`
 -- AUTO_INCREMENT for table `toko`
 --
 ALTER TABLE `toko`
-  MODIFY `id_toko` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_toko` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
@@ -175,7 +175,8 @@ ALTER TABLE `toko`
 -- Constraints for table `detail_pembelian`
 --
 ALTER TABLE `detail_pembelian`
-  ADD CONSTRAINT `FK_item` FOREIGN KEY (`id_item`) REFERENCES `item` (`id_item`) ON DELETE CASCADE;
+  ADD CONSTRAINT `FK_item` FOREIGN KEY (`id_item`) REFERENCES `item` (`id_item`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_pembelian` FOREIGN KEY (`id_pembelian`) REFERENCES `pembelian` (`id_pembelian`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `item`
