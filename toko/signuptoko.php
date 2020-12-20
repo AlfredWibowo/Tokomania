@@ -82,7 +82,7 @@
 </head>
 <body onload="CheckUsername()">
     <div class="container">
-        <div class="title">
+        <div class="title pt-2">
             <h2>SIGN UP TOKO</h2>
         </div>
         <form method="POST" action="../services/signuptoko.php">

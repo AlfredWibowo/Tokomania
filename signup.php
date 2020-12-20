@@ -88,7 +88,7 @@
 </head>
 <body onload="CheckPassword()">
     <div class="container">
-        <div class="title">
+        <div class="title pt-2">
             <h2>SIGN UP USER</h2>
         </div>
         <form method="POST" action="./services/signup.php">
