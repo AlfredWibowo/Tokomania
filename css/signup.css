@@ -4,6 +4,7 @@ body {
 
 .container-fluid {
     margin-top: 50px;
+    animation: transitionIn 1s;
  }
  
  .row {
@@ -12,3 +13,15 @@ body {
     background-color: white;
     width: 60%;
  }
+
+ @keyframes transitionIn{
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+    to{
+        opacity: 1;
+        transform: rotateX(0);
+    }
+ }
+ 

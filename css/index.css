@@ -4,6 +4,7 @@ body {
 
 .container {
    margin-top: 15px; 
+   animation: transitionIn 1s;
 }
 
 .title {
@@ -23,4 +24,15 @@ body {
 #form {
    margin-left: auto;
    margin-right: auto;
+}
+
+@keyframes transitionIn{
+   from {
+       opacity: 0;
+       transform: rotateX(-10deg);
+   }
+   to{
+       opacity: 1;
+       transform: rotateX(0);
+   }
 }
