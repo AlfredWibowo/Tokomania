@@ -21,6 +21,7 @@
         <script>
             function getItem()
             {
+                console.log("am");
                 var search = $("#searchbar").val();
                 $.ajax({
                     url: "./services/searchitem.php",
@@ -77,8 +78,9 @@
         </script>
     </head>
     <body>
+        <?php include "navbar.php"; ?>
         <div class="container">
-            <div class="menu">
+            <!-- <div class="menu">
                 <ul>
                     <li class="logo"><img src="toped.png"></li>
                     <li><li class="active"><a href="home.php">Home</a></li></li>
@@ -90,39 +92,15 @@
                 <div class="Logout">
                     <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
                 </div>
-            </div>
+            </div> -->
             <div class="search">
                 <input type="text" id="searchbar">
                 <button type="text" class="btn btn-success" onclick="getItem()">Search</button>
             </div>
-            <div id="item-list" class="item-list" style="margin-top: 3%">
-                <!-- <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" src="toped.png" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">nama toko</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div> -->
-            </div>
-            <!-- <div class="quick-menu">
-                <ul>
-                    <li><i class="fa fa-share-square-o" aria-hidden="true"></i><p>Share</p></li>
-                    <li><i class="fa fa-history" aria-hidden="true"></i><p>History</p></li>
-                    <li><i class="fa fa-heart-o" aria-hidden="true"></i><p>Favorite</p></li>
-                    <li><i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        <p>Message</p></li>
-                </ul>
-                </div>
-                <div class="quick-social">
-                    <ul>
-                        <li><i class="fa fa-facebook-official" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-twitter-square" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-instagram" aria-hidden="true"></i></li>
-
-                    </ul>
-                    </div>
-            </div> -->
+            <div class="transparenttable">
+                 <table id="item-list" class="item-list">
+                </table>
+            </div>            
         </div>
     </body>
 </html>

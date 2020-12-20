@@ -67,8 +67,9 @@
         </script>
     </head>
     <body onload="History()">
+        <?php include "navbar.php"; ?>
         <div class="container">
-            <div class="menu">
+            <!-- <div class="menu">
                 <ul>
                     <li class="logo"><img src="toped.png"></li>
                     <li class="active"><a href="home.php">Home</a></li>
@@ -80,10 +81,12 @@
                 <div class="Logout">
                     <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
                 </div>
-            </div>
+            </div> -->
             <input type="hidden" id="pembeli" value="<?php echo $username; ?>"></input>
-            <div id="item-list" class="item-list">
+            <div class="transparenttable">
+                 <div id="item-list" class="item-list">
 
+                </div>
             </div>
         </div>
     </body>

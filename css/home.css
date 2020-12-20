@@ -5,20 +5,27 @@
 }
 body{
     background-image: url("../background_christmas.jpg");
-    background-repeat: no-repeat;
     background-size: cover;
     background-color: #cccccc;
 }
-.container {
+.card-img-top {
     width: 100%;
-    height: 100%;
+    height: 15vw;
+    object-fit: cover;
 }
 .transparent{
     background: rgba(255, 255, 255, 0.5);
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
     margin: 10px;
     animation: transitionIn 1s;
+
+}
+.transparenttable{
+    background: rgba(255, 255, 255, 0.5);
+    width: auto;
+    height: auto;
+    margin: 10px;
 }
 .menu{
     opacity: 1;
@@ -27,7 +34,7 @@ body{
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: #96b753;
+    background: #c6e686;
 }
 .menu ul {
     display: inline-flex;
@@ -44,14 +51,9 @@ body{
 }
 
 .logo img {
-    width: 100px;
-    margin-top: -30px;
-    margin-right: 15px;
+    width: 50px;
 }
 
-.active {
-    color: rgb(5, 17, 180) !important;
-}
 
 .Logout{
     float: right;
@@ -77,68 +79,22 @@ body{
     padding: 8px 22pxS;
 }
 
-.quick-menu {
-    left: 0;
-    bottom: 0;
-    position: fixed;
-    background: linear-gradient(to right, #96b753, #7d9b5d);
-    height: 100px;
-    z-index: 1000;
-}
-
-.quick-menu ul {
-    display: inline-flex;
-    margin: 30px auto;
-    cursor: pointer;
-}
-
-.quick-menu ul li {
-    list-style: none;
-    margin: 0 50px;
-    cursor: pointer;
-}
-
-.quick-menu ul li .fa {
-    font-size: 25px;
-    color: black;
-}
-
-.quick-menu ul li p {
-    font-size: 10px;
-    color: black;
-    margin-top: 15px;
-}
-
-.quick-social {
-    right: 72px;
-    bottom: 35px;
-    position: fixed;
-}
-
-.quick-social ul li {
-    list-style: none;
-    margin-top: 15px;
-    text-align: center;
-}
-
-.quick-social ul li {
-    color: #999;
-    border-radius: 50%;
-    border: 1px solid #999;
-    padding: 5px;
-    display: block;
-
-}
 .item-list{
-    margin-top: 10%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
     opacity: 1;
     padding: 10px;
+    position: relative;
 }
 .search{
     margin-top: 10%;
 }
 .item-list td{
-    padding-right: 50px;
+        padding-right: 20px;
+        padding-left: 20px;
+        padding-bottom: 10px;
+        padding-top: 10px;
 }
 
 @keyframes transitionIn{

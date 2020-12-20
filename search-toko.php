@@ -70,26 +70,16 @@
         </script>
     </head>
     <body>
-        <div class="container">
-            <div class="menu">
-                <ul>
-                    <li class="logo"><img src="toped.png"></li>
-                    <li><li class="active"><a href="home.php">Home</a></li></li>
-                    <li><a href="cart.php">Cart</a></li>
-                    <li class="active"><a href="search.php">Search</a></li>
-                    <li><a href="search-toko.php">Search Toko</a></li>
-                    <li><a href="history.php">History</a></li>                    
-                </ul>
-                <div class="Logout">
-                    <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
-                </div>
-            </div>
+        <?php include "navbar.php"; ?>
+        <div class="container">          
             <div class="search">
                 <input type="text" id="searchbar">
                 <button type="text" class="btn btn-success" onclick="getItem()">Search</button>
             </div>
-            <div id="item-list" class="item-list" style="margin-top: 3%">
+            <div class="transparenttable">                
+                 <div id="item-list" class="item-list">
 
+                </div>
             </div>
         </div>
     </body>

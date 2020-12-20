@@ -74,8 +74,7 @@
         </script>
     </head>
     <body onload="getItem()">
-        <div class="container">
-            <div class="menu">
+            <!-- <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
                 <ul>
                     <li class="logo"><img src="toped.png"></li>
                     <li class="active"><a href="home.php">Home</a></li>
@@ -90,11 +89,15 @@
                 <div class="Logout">
                     <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
                 </div>
-            </div>
+            </nav> -->
+        <?php include "navbar.php"; ?>
+        <div class="container">
+            
+           
             <div class="transparent">
-                 <div id="item-list" class="item-list">
+                 <table id="item-list" class="item-list">
 
-                </div>
+                </table>
             </div>
         </div>
     </body>

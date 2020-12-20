@@ -6,14 +6,10 @@
         exit();
     } 
     $username = $_SESSION['username'];
-
     
-    if(isset($_GET['id'])){
-        $user=$_GET['id'];
-        $sql = "SELECT * FROM pembeli WHERE username = ?";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$user]);
-    }
+    $sql = "SELECT * FROM pembeli WHERE username = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$username]);
 ?>
 <!DOCTYPE html>
 <html lang = "en">
@@ -46,57 +42,44 @@
     
     </head>
     <body>
+        <?php include "navbar.php"; ?>
         <div class="container">
-            <div class="menu">
-                <ul>
-                    <li class="logo"><img src="toped.png"></li>
-                    <li class="active"><a href="home.php">Home</a></li>
-                    <li><a href="cart.php">Cart</a></li>
-                    <li><a href="search.php">Search</a></li>
-                    <li><a href="search-toko.php">Search Toko</a></li>
-                    <li><a href="history.php">History</a></li>                    
-                </ul>
-                <div class="Logout">
-                    <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
+            <div class="containerprofile center" style="margin-top:10%;">
+                <?php
+                    $toko=$stmt->fetch();
+                ?>
+                
+                <div>
+                    <h1 style="text-align:center">User Profile</h1>
                 </div>
-            </div>
-        </div>
 
-        <div class="containerprofile center" style="margin-top:10%;">
-            <?php
-                $toko=$stmt->fetch();
-            ?>
-            
-            <div>
-                <h1 style="text-align:center">User Profile</h1>
-            </div>
-
-            <div class="data">
-                <div class="idtoko">
-                    <label> <?php echo $toko['id_pembeli']; ?> </label>
-                </div>
-                <div class="label">
-                    <label >ID Pembeli</label>
-                </div>
-                <div class="email">
-                    <label> <?php echo $toko['username']; ?> </label>
-                </div>
-                <div class="label">
-                    <label >Username</label>
-                </div>
-                <div class="namatoko">
-                    <label> <?php echo $toko['nama']; ?> </label>
-                </div>
-                <div class="label">
-                    <label >Nama</label>
-                </div>
-                <div class="notelp">
-                    <label> <?php echo $toko['alamat']; ?> </label>
-                </div>
-                <div class="label">
-                    <label >Alamat</label>
+                <div class="data">
+                    <div class="idtoko">
+                        <label> <?php echo $toko['id_pembeli']; ?> </label>
+                    </div>
+                    <div class="label">
+                        <label >ID Pembeli</label>
+                    </div>
+                    <div class="email">
+                        <label> <?php echo $toko['username']; ?> </label>
+                    </div>
+                    <div class="label">
+                        <label >Username</label>
+                    </div>
+                    <div class="namatoko">
+                        <label> <?php echo $toko['nama']; ?> </label>
+                    </div>
+                    <div class="label">
+                        <label >Nama</label>
+                    </div>
+                    <div class="notelp">
+                        <label> <?php echo $toko['alamat']; ?> </label>
+                    </div>
+                    <div class="label">
+                        <label >Alamat</label>
+                    </div>
                 </div>
             </div>
-        </div>
+        </div>        
     </body>
 </html>

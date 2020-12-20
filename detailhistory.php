@@ -35,8 +35,9 @@
         </script>
     </head>
     <body>
+        <?php include "navbar.php"; ?>
         <div class="container">
-            <div class="menu">
+            <!-- <div class="menu">
                 <ul>
                     <li class="logo"><img src="toped.png"></li>
                     <li class="active"><a href="home.php">Home</a></li>
@@ -48,40 +49,42 @@
                 <div class="Logout">
                     <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
                 </div>
-            </div>
-            <div id="item-list" class="item-list">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <td>Item</td>
-                            <td>Jumlah</td>
-                            <td>Total Harga</td>
-                            <td>Status</td>
-                        </tr>
-                    </thead>
-                <?php
-                    while($row = $stmt->fetch()){?>
-                        <tr>
-                            <td><?php echo $row['nama_item']; ?></td>
-                            <td><?php echo $row['jumlah'] ?></td>
-                            <td><?php echo ($row['jumlah'] * $row['harga']) ?></td>
-                            <td><?php 
-                                if($row['status'] == 0)
-                                {
-                                    echo "<p style='color:yellow;'>Waiting</p>";
-                                }
-                                else if($row['status'] == 1)
-                                {
-                                    echo "<p style='color:green;'>Confirmed</p>";
-                                }
-                                else if($row['status'] == 2)
-                                {
-                                    echo "<p style='color:red;'>Canceled</p>";
-                                }
-                            ?></td>
-                        </tr>
-                <?php } ?>                
-                </table>
+            </div> -->
+            <div class="transparenttable">
+                 <div id="item-list" class="item-list">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>Item</td>
+                                <td>Jumlah</td>
+                                <td>Total Harga</td>
+                                <td>Status</td>
+                            </tr>
+                        </thead>
+                    <?php
+                        while($row = $stmt->fetch()){?>
+                            <tr>
+                                <td><?php echo $row['nama_item']; ?></td>
+                                <td><?php echo $row['jumlah'] ?></td>
+                                <td><?php echo ($row['jumlah'] * $row['harga']) ?></td>
+                                <td><?php 
+                                    if($row['status'] == 0)
+                                    {
+                                        echo "<p style='color:yellow;'>Waiting</p>";
+                                    }
+                                    else if($row['status'] == 1)
+                                    {
+                                        echo "<p style='color:green;'>Confirmed</p>";
+                                    }
+                                    else if($row['status'] == 2)
+                                    {
+                                        echo "<p style='color:red;'>Canceled</p>";
+                                    }
+                                ?></td>
+                            </tr>
+                    <?php } ?>                
+                    </table>
+                </div>
             </div>
         </div>
     </body>

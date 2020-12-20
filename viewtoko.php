@@ -87,23 +87,14 @@
     </head>
     <body onload="getItem()">
         <div class="container">
-            <div class="menu">
-                <ul>
-                    <li class="logo"><img src="toped.png"></li>
-                    <li><li class="active"><a href="home.php">Home</a></li></li>
-                    <li><a href="cart.php">Cart</a></li>
-                    <li class="active"><a href="search.php">Search</a></li>
-                    <li><a href="search-toko.php">Search Toko</a></li>
-                    <li><a href="history.php">History</a></li>                    
-                </ul>
-                <div class="Logout">
-                    <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
-                </div>
-            </div>
+            <?php include "navbar.php"; ?>
             <input type="hidden" id="idtoko" value="<?php echo $toko['id_toko']; ?>">
-            <H3 style="margin-top:10%; text-align:center;"><?php echo $toko['nama_toko']; ?></H3>
-            <div id="item-list" class="item-list" style="margin-top: 3%">
+            
+            <div class="transparent">
+                <H3 style="margin-top:10%; text-align:center;"><?php echo $toko['nama_toko']; ?></H3>
+                 <div id="item-list" class="item-list" style="margin-top:0;">
 
+                </div>
             </div>
         </div>
     </body>
