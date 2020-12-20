@@ -2,13 +2,17 @@ body {
     background-color: #96b753;
 }
 
-.container-fluid {
-    margin-top: 50px;
+.container {
+    margin-top: 30px;
  }
  
+ .title {
+    text-align: center;
+ }
+
  .row {
     margin-left: auto;
     margin-right: auto;
+    width: 80%;
     background-color: white;
-    width: 60%;
  }
