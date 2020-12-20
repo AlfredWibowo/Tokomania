@@ -87,40 +87,65 @@
     </script>
 </head>
 <body onload="CheckPassword()">
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-12 col-sm-6 col-md-5">
-                <form method="POST" action="./services/signup.php">
+    <div class="container">
+        <div class="title pt-2">
+            <h2>SIGN UP USER</h2>
+        </div>
+        <form method="POST" action="./services/signup.php">
+            <div class="row pt-2 mt-5">
+                <div class="col-md-12 col-sm-11 col-12">
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input onkeyup="CheckPassword()" type="text" class="form-control" name="username" id="username" placeholder="Username" required>
+                        <input onkeyup="CheckUsername()" type="text" class="form-control" name="username" id="username" placeholder="Username" required>
                         <p id="warning"></p>   
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-11 col-12">
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input onkeyup="CheckPassword()" type="password" class="form-control" name="password" id="password" placeholder="Password" required>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-11 col-12">
                     <div class="form-group">
                         <label for="confrimpassword">Confirm Password</label>
                         <input onkeyup="CheckPassword()" type="password" class="form-control" name="confirmpassword" id="confirmpassword" placeholder="Password" required>
                     </div>
                     <p id="checkpass"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-11 col-12">
                     <div class="form-group">
                         <label for="nama">Nama</label>
                         <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama" required>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-11 col-12">
                     <div class="form-group">
                         <label for="alamat">Alamat</label>
                         <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Alamat" required>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-11 col-12">
                     <div class="form-group">
                         <label for="telp">No Telp</label>
                         <input type="text" class="form-control" name="telp" id="telp" placeholder="No Telp" required>
                     </div>
-                    <button type="submit" class="btn btn-primary" id="signup" disabled>Sign Up</button>
-                </form>
+                </div>
             </div>
-        </div>    
+            <div class="row justify-content-center pb-2 mb-5">
+                <button type="submit" class="btn btn-primary" id="signup" disabled>Sign Up</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>

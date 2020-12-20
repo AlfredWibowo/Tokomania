@@ -2,11 +2,18 @@ body {
     background-color: #96b753;
 }
 
-.container-fluid {
-    margin-top: 50px;
-    animation: transitionIn 1s;
+.container {
+    margin-top: 30px;
+    border-radius: 25px;
+    width: 90%;
+    background-color: yellowgreen;
+    height: 700px;
  }
  
+ .title {
+    text-align: center;
+ }
+
  .row {
     margin-left: auto;
     margin-right: auto;

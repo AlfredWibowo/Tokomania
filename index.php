@@ -36,7 +36,7 @@
             <div class="title">
                 <h1>LOGIN USER</h1>
             </div>
-            <div class="row ">
+            <div class="row pt-2 pb-2">
                 <div class="col-sm-11 col-md-9 col-lg-8" id="form">
                     <form method="POST" action="./services/verify-login.php">
                         <div class="form-content">  

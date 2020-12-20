@@ -81,36 +81,57 @@
     </script>
 </head>
 <body onload="CheckUsername()">
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-12 col-sm-6 col-md-5">
-                <form method="POST" action="../services/signuptoko.php">
+    <div class="container">
+        <div class="title pt-2">
+            <h2>SIGN UP TOKO</h2>
+        </div>
+        <form method="POST" action="../services/signuptoko.php">
+            <div class="row pt-2 mt-5">
+                <div class="col-md-12 col-sm-11 col-12">
                     <div class="form-group">
                         <label for="nama-toko">Nama Toko</label>
                         <input onkeyup="CheckUsername()" type="text" class="form-control" name="nama_toko" id="nama_toko" placeholder="Username" required>
                         <p id="warning"></p>   
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-11 col-12">
                     <div class="form-group">
                         <label for="passwordtoko">Password</label>
                         <input onkeyup="CheckPassword()" type="password" class="form-control" name="passwordtoko" id="passwordtoko" placeholder="Password" required>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-11 col-12">
                     <div class="form-group">
-                        <label for="confrimpassword">Confirm Password</label>
-                        <input onkeyup="CheckPassword()" type="password" class="form-control" name="confirmpassword" id="confirmpassword" placeholder="Password" required>
+                            <label for="confrimpassword">Confirm Password</label>
+                            <input onkeyup="CheckPassword()" type="password" class="form-control" name="confirmpassword" id="confirmpassword" placeholder="Password" required>
                     </div>
-                    <p id="checkpass"></p>
+                        <p id="checkpass"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-11 col-12">
                     <div class="form-group">
                         <label for="emailtoko">Email</label>
                         <input type="text" class="form-control" name="emailtoko" id="emailtoko" placeholder="Email" required>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 col-sm-11 col-12">
                     <div class="form-group">
                         <label for="no_telp">No Telp</label>
                         <input type="text" class="form-control" name="no_telp" id="no_telp" placeholder="No Telp" required>
                     </div>
-                    <button type="submit" class="btn btn-primary" id="signup" disabled>Sign Up</button>
-                </form>
+                </div>
             </div>
-        </div>    
+            <div class="row justify-content-center pb-2 mb-5">
+                <button type="submit" class="btn btn-primary" id="signup" disabled>Sign Up</button>
+            </div>
+        </form>
     </div>
 </body>
 </html>
