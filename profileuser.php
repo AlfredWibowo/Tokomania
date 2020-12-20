@@ -62,7 +62,7 @@
             </div>
         </div>
 
-        <div class="containerprofile center">
+        <div class="containerprofile center" style="margin-top:10%;">
             <?php
                 $toko=$stmt->fetch();
             ?>

@@ -15,6 +15,7 @@
             if($password != $confirmpassword)
             {
                 header("Location: ../signup.php?stat=2");
+                exit();
             }
             $check = "SELECT * FROM pembeli WHERE username = ?";
             $stmt = $pdo->prepare($check);

@@ -11,6 +11,7 @@
         if($usernametoko != '' && $passwordtoko != '' &&  $telptoko != ''  && $confirmpassword != ''){
             if($passwordtoko != $confirmpassword){
                 header("Location: ../toko/signuptoko.php?stat=2");
+                exit();
             }
             $check = "SELECT * FROM toko WHERE nama_toko = ?";
             $stmt = $pdo->prepare($check);
