@@ -27,7 +27,7 @@
             $ext = pathinfo($path, PATHINFO_EXTENSION);
             if($ext != "png" && $ext != "jpg")
             {
-                echo "<script>alert('Only Support .png adn .jpg files'); history.back();</script>";
+                echo "<script>alert('Only Support .png and .jpg files'); history.back();</script>";
                 exit();
             }
             $filename = $username."_profile_".$randomstring.".".$ext; // filename pake namatoko+productname

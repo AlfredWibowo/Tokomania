@@ -32,12 +32,12 @@
 </head>
 <body>
 <div class="container">
-        <div class="container-inner">
-            <div class="title">
-                <h1>LOGIN TOKO</h1>
-            </div>
+        <div class="container-inner">            
             <div class="row pt-2 pb-2">
                 <div class="col-sm-11 col-md-9 col-lg-8" id="form">
+                    <div class="title">
+                        <h1>LOGIN TOKO</h1>
+                    </div>
                     <form method="POST" action="../services/verify-login-toko.php">
                         <div class="form-content">  
                             <div class="form-group">

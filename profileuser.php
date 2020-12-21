@@ -99,15 +99,15 @@
                     <form enctype="multipart/form-data" method="POST" action="./services/updateprofile.php" id="updateform">
                         <div class="form-group">
                             <label for="updatenama" style="float: left;">Nama</label>
-                            <input type="text" name="updatenama" class="form-control" id="updatenama" required>
+                            <input type="text" name="updatenama" class="form-control" id="updatenama" value="<?php echo $user['nama']; ?>" required>
                         </div>
                         <div>
                             <label for="updatetelp" style="float: left;">No Telepon</label>
-                            <input type="text" name="updatetelp" class="form-control" id="updatetelp" required>
+                            <input type="text" name="updatetelp" class="form-control" id="updatetelp" value="<?php echo $user['no_telp']; ?>" required>
                         </div>
                         <div>
                             <label for="updatealamat" style="float: left;">Alamat</label>
-                            <input type="text" name="updatealamat" class="form-control" id="updatealamat" required>
+                            <input type="text" name="updatealamat" class="form-control" id="updatealamat" value="<?php echo $user['alamat']; ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="updatefoto" style="float: left;">Foto</label>

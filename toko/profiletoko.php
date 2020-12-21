@@ -100,11 +100,11 @@
                     <form enctype="multipart/form-data" method="POST" action="../services/updateprofiletoko.php" id="updateform">
                         <div class="form-group">
                             <label for="updateemaul" style="float: left;">Email</label>
-                            <input type="text" name="updateemail" class="form-control" id="updatenama" required>
+                            <input type="text" name="updateemail" class="form-control" id="updatenama" value="<?php echo $toko['email']; ?>" required>
                         </div>
                         <div>
                             <label for="updatetelp" style="float: left;">No Telepon</label>
-                            <input type="text" name="updatetelp" class="form-control" id="updatetelp" required>
+                            <input type="text" name="updatetelp" class="form-control" id="updatetelp" value="<?php echo $toko['no_telp']; ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="updatefoto" style="float: left;">Foto</label>
