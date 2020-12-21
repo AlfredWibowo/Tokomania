@@ -16,8 +16,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
         <script src="https://use.fontawesome.com/504410ced2.js"></script>
         <link rel="stylesheet" href="./css/home.css">
-        <link rel="stylesheet" href="https://cdnjs.cloud
-        flare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script>  
             function ViewDetail(id)
             {
@@ -35,7 +34,7 @@
                     success: function(res){
                         console.log(res);
                          $("#item-list").html('');
-                         var table = $("<table class='table'></table>");
+                         var table = $("<table id='data_table' class='table'></table>");
                          var title = $("<thead><tr><td>Id Pembelian</td><td>Tanggal Pembelian</td></tr></thead>");
                          table.append(title);
                          res.forEach(function(item){
@@ -64,6 +63,9 @@
                     }
                 })
             }
+            $(document).ready(function() {
+                $('#data_table').DataTable();
+            });
         </script>
     </head>
     <body onload="History()">

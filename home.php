@@ -17,8 +17,7 @@
         <script src="https://use.fontawesome.com/504410ced2.js"></script>
         <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.css">
         <link rel="stylesheet" href="./css/home.css">
-        <link rel="stylesheet" href="https://cdnjs.cloud
-        flare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script>
             function getItem()
             {

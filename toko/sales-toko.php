@@ -95,7 +95,7 @@
                                 <td>` + item['username'] + `</td>
                                 <td>` + item['harga'] + `</td>
                                 <td><a class="btn btn-success" onclick="Confirm(` + item['id_detail'] + `)">Confirm</a></td>
-                                <td><a class="btn btn-warning" onclick="Cancel(` + item['id_detail'] + `)">Cancel</a></td>
+                                <td><a class="btn btn-danger" onclick="Cancel(` + item['id_detail'] + `)">Cancel</a></td>
                                 </tr>
                             `)                           
                             table.append(html);
@@ -119,31 +119,14 @@
         </script>
     </head>
     <body onload="History()">
-        <div class="container">
-            <div class="menu"> 
-                    <ul>
-                        <li class="logo"><img src="toped.png"></li>
-                        <li>
-                            <a href="home-toko.php">Seller Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="addpage.php"> Add Product</a>
-                        </li>
-                        <li>
-                            <a href="sales-toko.php">Sales</a>
-                        </li>
-                        <li>
-                            <a href="history-toko.php"> History</a>
-                        </li>              
-                    </ul>
-                <div class="Logout">
-                    <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
-                </div>
-            </div>
+        <?php include "navbar.php"; ?>
+        <div class="container">           
             <input type="hidden" id="pembeli" value="<?php echo $username; ?>"></input>
-            <div id="item-list" class="item-list">
+            <div class="transparenttable">
+                <div id="item-list" class="item-list">
 
-            </div>
+                </div>
+            </div>            
         </div>
     </body>
 </html>

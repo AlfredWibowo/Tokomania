@@ -30,7 +30,7 @@
             function LogOut()
             {
                 $.ajax({
-                    url: "./services/logout.php",
+                    url: "../services/logout.php",
                     method: "GET",
                     success: function(res){
                         if(res == "logout"){
@@ -43,73 +43,44 @@
     
     </head>
     <body>
-        
+        <?php include "navbar.php"; ?>
         <div class="container">
-                <div class="menu"> 
-                    <ul>
-                        <li class="logo"><img src="toped.png"></li>
-                        <li>
-                            <a href="home-toko.php">Seller Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="addpage.php"> Add Product</a>
-                        </li>
-                        <li>
-                            <a href="sales-toko.php">Sales</a>
-                        </li>
-                        <li>
-                            <a href="history-toko.php"> History</a>
-                        </li>
-                        <li>
-                            <?php echo '<a href="profiletoko.php?id='. $username .'">Profile</a>'?>
-                        </li>        
-                    </ul>
-                    <div class="Logout">
-                        <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
+            <div class="containerprofile center">
+                <?php
+                    $toko=$stmt->fetch();
+                ?>
+                
+                <div>
+                    <h1 style="text-align:center">Shop Profile</h1>
+                </div>
+
+                <div class="data">
+                    <div class="idtoko">
+                        <label> <?php echo $toko['id_toko']; ?> </label>
+                    </div>
+                    <div class="label">
+                        <label >ID Toko</label>
+                    </div>
+                    <div class="namatoko">
+                        <label> <?php echo $toko['nama_toko']; ?> </label>
+                    </div>
+                    <div class="label">
+                        <label >Nama Toko</label>
+                    </div>
+                    <div class="notelp">
+                        <label> <?php echo $toko['no_telp']; ?> </label>
+                    </div>
+                    <div class="label">
+                        <label >No Telp</label>
+                    </div>
+                    <div class="email">
+                        <label> <?php echo $toko['email']; ?> </label>
+                    </div>
+                    <div class="label">
+                        <label >Email</label>
                     </div>
                 </div>
-                <div>
-                    <h4><b>Your Products</b></h4>
-                </div>
-                <div id="item-list" class="item-list">
-            </div>
-        </div>
-
-        <div class="containerprofile center">
-            <?php
-                $toko=$stmt->fetch();
-            ?>
-            
-            <div>
-                <h1 style="text-align:center">Shop Profile</h1>
-            </div>
-
-            <div class="data">
-                <div class="idtoko">
-                    <label> <?php echo $toko['id_toko']; ?> </label>
-                </div>
-                <div class="label">
-                    <label >ID Toko</label>
-                </div>
-                <div class="namatoko">
-                    <label> <?php echo $toko['nama_toko']; ?> </label>
-                </div>
-                <div class="label">
-                    <label >Nama Toko</label>
-                </div>
-                <div class="notelp">
-                    <label> <?php echo $toko['no_telp']; ?> </label>
-                </div>
-                <div class="label">
-                    <label >No Telp</label>
-                </div>
-                <div class="email">
-                    <label> <?php echo $toko['email']; ?> </label>
-                </div>
-                <div class="label">
-                    <label >Email</label>
-                </div>
-            </div>
-        </div>
+            </div>  
+        </div>        
     </body>
 </html>

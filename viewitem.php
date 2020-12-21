@@ -23,6 +23,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
         <script src="https://use.fontawesome.com/504410ced2.js"></script>
         <link rel="stylesheet" href="./css/home.css">
+        <link rel="stylesheet" href="./css/view-item.css">
         <link rel="stylesheet" href="https://cdnjs.cloud
         flare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script>
@@ -93,6 +94,7 @@
     <body>
         <?php include "navbar.php"; ?>
         <div class="container">
+        <div class="transparenttable">
             <?php
                 if($stmt->rowCount() == 1)
                 {
@@ -108,7 +110,7 @@
                         </div>                   
                         <div>
                             <label>Deskripsi : </label>
-                            <input disabled value="<?php echo $item['deskripsi']; ?>">
+                            <textarea type="text" readonly><?php echo $item['deskripsi']; ?></textarea>
                         </div>
                         <div>
                             <label>Kategori : </label>
@@ -132,6 +134,7 @@
                         Item Unavailable
                     </div>
                 <?php } ?>
+            </div>
             <!-- Modal -->
             <div id="myModal" class="modal fade" role="dialog">
                 <div class="modal-dialog">

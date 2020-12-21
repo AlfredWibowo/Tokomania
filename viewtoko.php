@@ -86,8 +86,8 @@
         </script>
     </head>
     <body onload="getItem()">
+        <?php include "navbar.php"; ?>
         <div class="container">
-            <?php include "navbar.php"; ?>
             <input type="hidden" id="idtoko" value="<?php echo $toko['id_toko']; ?>">
             
             <div class="transparent">
