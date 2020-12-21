@@ -1,82 +1,22 @@
 body{
     background-color:#c6e686;
 }
-.containerprofile { 
-    height: 600px;
-    width: 1000px;
-    position: relative;
-    background-color: #96b753;
-    padding: 35px; 
-    border-radius: 10px 75px;
-    box-shadow: 5px 10px #696c70;
-  }
-.center {
-    margin: 0;
-    position: relative;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%,0);
-    transform: translate(-50%,0);
-}
-.idtoko{
-    width: 250px;
-    border: 3px solid black;
-    margin-bottom: 15px;
-    float: right;
-    margin-left: 15px;
-    margin-right: 135px;
-    border-radius: 10px;
+
+.container {
     text-align: center;
-    background-color: #bfc7a7;
+    background-color: greenyellow;
+    width: 90%;
 }
-.namatoko{
-    width: 250px;
-    border: 3px solid black;
-    float: right;
-    margin-bottom: 15px;
-    margin-left: 15px;
-    margin-right: 135px;
-    border-radius: 10px;
-    text-align: center;
-    background-color: #bfc7a7;
+
+.row {
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
-.notelp{
-    width: 250px;
-    border: 3px solid black;
-    float: right;
-    margin-bottom: 15px;
-    margin-left: 15px;
-    margin-right: 135px;
-    border-radius: 10px;
-    text-align: center;
-    background-color: #bfc7a7;
-}
-.email{
-    width: 250px;
-    border: 3px solid black;
-    float: right;
-    margin-bottom: 15px;
-    margin-left: 15px;
-    margin-right: 135px;
-    border-radius: 10px;
-    text-align: center;
-    position: relative;
-    background-color: #bfc7a7;
-}
-.label{
-    width: 100px;
-    border: 3px solid black;
-    margin-left: 150px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    text-align: center;
-    font-weight: bold;
-    background-color: #bfc7a7;
-}
-.data{
-    position: relative;
-    top: 40%;
-    left: 50%;
-    -ms-transform: translate(-40%, -60%);
-    transform: translate(-50%, -50%);
+
+.card-img-top {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 15vw;
+    object-fit: cover;
 }
