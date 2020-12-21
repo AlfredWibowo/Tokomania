@@ -93,7 +93,7 @@
         </div>
         <form method="POST" action="./services/signup.php">
             <div class="row pt-2 mt-5">
-                <div class="col-md-8 col-12">
+                <div class="col-md-12 col-sm-11 col-12">
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input onkeyup="CheckValid()" type="text" class="form-control" name="username" id="username" placeholder="Username" required>
@@ -102,7 +102,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-8 col-12">
+                <div class="col-md-12 col-sm-11 col-12">
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input onkeyup="CheckValid()" type="password" class="form-control" name="password" id="password" placeholder="Password" required>
@@ -110,7 +110,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-8 col-12">
+                <div class="col-md-12 col-sm-11 col-12">
                     <div class="form-group">
                         <label for="confrimpassword">Confirm Password</label>
                         <input onkeyup="CheckValid()" type="password" class="form-control" name="confirmpassword" id="confirmpassword" placeholder="Password" required>
@@ -119,7 +119,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-8 col-12">
+                <div class="col-md-12 col-sm-11 col-12">
                     <div class="form-group">
                         <label for="nama">Nama</label>
                         <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama" required>
@@ -127,7 +127,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-8 col-12">
+                <div class="col-md-12 col-sm-11 col-12">
                     <div class="form-group">
                         <label for="alamat">Alamat</label>
                         <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Alamat" required>
