@@ -30,6 +30,19 @@
             function back(){
                 window.location.href = "home-toko.php";
             }
+            function LogOut()
+            {
+                $.ajax({
+                    url: "./services/logout.php",
+                    method: "GET",
+                    success: function(res){
+                        console.log(res);
+                        if(res == "logout"){
+                            location.reload();
+                        }
+                    }
+                })
+            }
         </script>
     </head>
     <body>
