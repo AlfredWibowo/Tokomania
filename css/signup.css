@@ -1,23 +1,26 @@
 body {
-    background-color: #96b753;
+    background-image: url("../login-background.jpg");
+    background-size: cover;
+    background-color: #cccccc;
 }
 
 .container {
     margin-top: 30px;
     border-radius: 25px;
     width: 90%;
-    background-color: yellowgreen;
+    background-color: rgba(255,255,255,0.8);
     height: 700px;
  }
- 
  .title {
     text-align: center;
  }
-
+.btn{
+    width: 100%;
+}
  .row {
     margin-left: auto;
     margin-right: auto;
-    background-color: white;
+    background-color: transparent;
     width: 60%;
  }
 

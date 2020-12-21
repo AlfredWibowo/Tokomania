@@ -6,14 +6,10 @@
         exit();
     } 
     $username = $_SESSION['usernametoko'];
-
     
-    if(isset($_GET['id'])){
-        $user=$_GET['id'];
-        $sql = "SELECT * FROM toko WHERE nama_toko = ?";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$user]);
-    }
+    $sql = "SELECT * FROM toko WHERE nama_toko = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$username]);
 ?>
 <!DOCTYPE html>
 <html lang = "en">

@@ -100,7 +100,7 @@
                             <a href="history-toko.php"> History</a>
                         </li>
                         <li>
-                            <?php echo '<a href="profiletoko.php?id='. $username .'">Profile</a>'?>
+                            <a href="profiletoko.php">Profile</a>
                         </li>        
                     </ul>
                     <div class="Logout">

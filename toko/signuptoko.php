@@ -28,9 +28,32 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
      <script>        
-        function CheckUsername() {
+        function CheckValid()
+        {
+            var usernamecorrect = false;
+            var passwordcorrect = false;            
+
+            var password = $("#passwordtoko").val();
+            var confirm = $("#confirmpassword").val();
+            if(password == '' || confirm == '')
+            {
+                passwordcorrect = false;
+                document.getElementById("checkpass").innerHTML = "";
+            }
+            else if(password != confirm)
+            {
+                passwordcorrect = false;
+                document.getElementById("checkpass").innerHTML = "Wrong";
+                document.getElementById("checkpass").style.color = "red";
+            }            
+            else if(password == confirm)
+            {
+                passwordcorrect = true;
+                document.getElementById("checkpass").innerHTML = "OK";
+                document.getElementById("checkpass").style.color = "green";
+            }
+            
             var username = $("#nama_toko").val();
-            console.log(username);
             $.ajax({
                 url: "../services/checkusernametoko.php",
                 method: "POST",
@@ -39,48 +62,38 @@
                 },
                 success: function(result)
                 {
-                    console.log(result);
                     if(result == "no")
                     {
+                        usernamecorrect = false;
                         document.getElementById("warning").innerHTML = "Username unavailable";
                         document.getElementById("warning").style.color = "red";
-                        document.getElementById("signup").disabled = true;
                     }
                     else if(result == "yes")
                     {
+                        usernamecorrect = true;
                         document.getElementById("warning").innerHTML = "Username available";
                         document.getElementById("warning").style.color = "green";
-                        document.getElementById("signup").disabled = false;
                     }
                     else if(result == "empty")
                     {
+                        usernamecorrect = false;
                         document.getElementById("warning").innerHTML = "";
+                    }
+
+                    if(usernamecorrect && passwordcorrect)
+                    {                
+                        document.getElementById("signup").disabled = false;
+                    }
+                    else
+                    {                
                         document.getElementById("signup").disabled = true;
                     }
                 }
             });
         }
-        function CheckPassword() {
-            var password = $("#passwordtoko").val();
-            var confirm = $("#confirmpassword").val();
-            if(password == '' || confirm == '') {
-                document.getElementById("checkpass").innerHTML = "";
-                document.getElementById("signup").disabled = true;
-            }
-            else if(password != confirm) {
-                document.getElementById("checkpass").innerHTML = "Wrong";
-                document.getElementById("checkpass").style.color = "red";
-                document.getElementById("signup").disabled = true;
-            }            
-            else if(password == confirm){
-                document.getElementById("checkpass").innerHTML = "OK";
-                document.getElementById("checkpass").style.color = "green";
-                document.getElementById("signup").disabled = false;
-            }
-        }
     </script>
 </head>
-<body onload="CheckUsername()">
+<body onload="CheckValid()">
     <div class="container">
         <div class="title pt-2">
             <h2>SIGN UP TOKO</h2>
@@ -90,7 +103,7 @@
                 <div class="col-md-12 col-sm-11 col-12">
                     <div class="form-group">
                         <label for="nama-toko">Nama Toko</label>
-                        <input onkeyup="CheckUsername()" type="text" class="form-control" name="nama_toko" id="nama_toko" placeholder="Username" required>
+                        <input onkeyup="CheckValid()" type="text" class="form-control" name="nama_toko" id="nama_toko" placeholder="Username" required>
                         <p id="warning"></p>   
                     </div>
                 </div>
@@ -99,7 +112,7 @@
                 <div class="col-md-12 col-sm-11 col-12">
                     <div class="form-group">
                         <label for="passwordtoko">Password</label>
-                        <input onkeyup="CheckPassword()" type="password" class="form-control" name="passwordtoko" id="passwordtoko" placeholder="Password" required>
+                        <input onkeyup="CheckValid()" type="password" class="form-control" name="passwordtoko" id="passwordtoko" placeholder="Password" required>
                     </div>
                 </div>
             </div>
@@ -107,7 +120,7 @@
                 <div class="col-md-12 col-sm-11 col-12">
                     <div class="form-group">
                             <label for="confrimpassword">Confirm Password</label>
-                            <input onkeyup="CheckPassword()" type="password" class="form-control" name="confirmpassword" id="confirmpassword" placeholder="Password" required>
+                            <input onkeyup="CheckValid()" type="password" class="form-control" name="confirmpassword" id="confirmpassword" placeholder="Password" required>
                     </div>
                         <p id="checkpass"></p>
                 </div>

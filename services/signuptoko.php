@@ -10,7 +10,7 @@
 
         if($usernametoko != '' && $passwordtoko != '' &&  $telptoko != ''  && $confirmpassword != ''){
             if($passwordtoko != $confirmpassword){
-                header("Location: ../toko/signuptoko.php?stat=2");
+                echo "<script>alert('Password Incorrect'); history.back();</script>";
                 exit();
             }
             $check = "SELECT * FROM toko WHERE nama_toko = ?";
@@ -18,7 +18,8 @@
             $stmt->execute([$usernametoko]);
 
             if($stmt->rowCount() > 0) {
-                echo "<script>history.back();</script>";
+                echo "<script>alert('Username Unavailabale'); history.back();</script>";
+                exit();
             }
             else{
                 $insertdata = "INSERT INTO toko (nama_toko,no_telp,email,password) VALUES(?,?,?,?)";
@@ -29,11 +30,13 @@
             }
         }
         else{
-            header("Location: ../toko/signuptoko.php?stat=1x");
+            echo "<script>alert('Empty Fields'); history.back();</script>";
+            exit();
         }    
            
     }
     else{
-        header("Location: ../toko/signuptoko.php?stat=1y");
+        echo "<script>alert('Try Again'); history.back();</script>";
+        exit();
     }
 ?>

@@ -14,7 +14,7 @@
         {
             if($password != $confirmpassword)
             {
-                header("Location: ../signup.php?stat=2");
+                echo "<script>alert('Password Incorrect'); history.back();</script>";
                 exit();
             }
             $check = "SELECT * FROM pembeli WHERE username = ?";
@@ -23,7 +23,8 @@
 
             if($stmt->rowCount() > 0)
             {
-                echo "<script>history.back();</script>";
+                echo "<script>alert('Username Unavailabale'); history.back();</script>";
+                exit();
             }
             else
             {
@@ -36,12 +37,14 @@
         }
         else
         {
-            header("Location: ../signup.php?stat=1");
+            echo "<script>alert('Empty Fields'); history.back();</script>";
+            exit();
         }    
            
     }
     else
     {
-        header("Location: ../signup.php?stat=1");
+        echo "<script>alert('Try Again'); history.back();</script>";
+        exit();
     }
 ?>
