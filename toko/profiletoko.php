@@ -59,7 +59,7 @@
             <div class="row">
                 <div class="col-lg-5 col-md-6 col-sm-9 col-12" style="margin-left: auto; margin-right: auto;">
                 <div class="card">
-                   <img class="card-img-top" src="<?php if($toko['foto_filepath'] == NULL){ echo './img/profile_icon.jpg';} else{echo '../img/'.$toko['foto_filepath'];}  ?>" alt="Card image cap">
+                   <img class="card-img-top" src="<?php if($toko['foto_filepath'] == NULL){ echo '../img/profile_icon.jpg';} else{echo '../img/'.$toko['foto_filepath'];}  ?>" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">
                             <?php echo $toko['nama_toko']; ?>
