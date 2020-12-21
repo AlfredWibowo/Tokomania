@@ -62,89 +62,53 @@
         </script>
     </head>
     <body onload="getItem()">
+        <?php include "navbar.php"; ?>
         <div class="container">
-            <div class="menu"> 
-                    <ul>
-                        <li class="logo"><img src="toped.png"></li>
-                        <li>
-                            <a href="home-toko.php">Seller Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="addpage.php"> Add Product</a>
-                        </li>
-                        <li>
-                            <a href="sales-toko.php">Sales</a>
-                        </li>
-                        <li>
-                            <a href="history-toko.php"> History</a>
-                        </li> 
-                    </ul>
-                <div class="Logout">
-                    <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
-                </div>
-            </div>
-            <?php
-                if($stmt->rowCount() == 1)
-                {
-                    $item = $stmt->fetch();?>
-                    <form action = "../services/updateitem.php" method="POST">
+            <div class="transparenttable">
+                <?php
+                    if($stmt->rowCount() == 1)
+                    {
+                        $item = $stmt->fetch();?>
+                        <form action = "../services/updateitem.php" method="POST">
+                            <div id="item-list" class="item-list" style="text-align:center; width: 100%;">
+                                <div class="form-group">
+                                    <label>Nama : </label>
+                                    <input class="form-control" name="unama" value="<?php echo $item['nama_item']; ?>">
+                                </div>     
+                                <div class="form-group"> 
+                                    <img style="height: 350px;" src="../img/<?php echo $item['gambar_filepath'] ?>">
+                                </div>
+                                <div class="form-group"> 
+                                    <input class="form-control" type="hidden" id="uid" name="uid" value="<?php echo $item['id_item']; ?>">
+                                </div>               
+                                <div class="form-group">
+                                    <label>Deskripsi : </label>
+                                    <textarea class="form-control" type="text" style="height: 100px;" name="udesc"><?php echo $item['deskripsi']; ?></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Kategori : </label>
+                                    <input class="form-control" disabled value="<?php echo $item['kategori']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Harga : </label>
+                                    <input class="form-control" name="uprice" value="<?php echo $item['harga']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label>Stok : </label>
+                                    <input class="form-control" name="ustock" value="<?php echo $item['stok']; ?>">
+                                </div>
+                                <button class="btn btn-success">Edit Product</button>
+                                <button class="btn btn-success" onclick=deleteItem()>Delete Product</button>
+                            </div>
+                        </form>
+                <?php }
+                    else
+                    {?>
                         <div id="item-list" class="item-list">
-                            <div>
-                                <label>Nama : </label>
-                                <input disabled value="<?php echo $item['nama_item']; ?>">
-                            </div>     
-                            <div>
-                                <img style="height: 300px;" src="../img/<?php echo $item['gambar_filepath'] ?>">
-                            </div>
-                            <div>
-                                <input type="hidden" id="uid" name="uid" value="<?php echo $item['id_item']; ?>">
-                            </div>               
-                            <div>
-                                <label>Deskripsi : </label>
-                                <input name="udesc" value="<?php echo $item['deskripsi']; ?>">
-                            </div>
-                            <div>
-                                <label>Kategori : </label>
-                                <input value="<?php echo $item['kategori']; ?>">
-                            </div>
-                            <div>
-                                <label>Harga : </label>
-                                <input name="uprice" value="<?php echo $item['harga']; ?>">
-                            </div>
-                            <div>
-                                <label>Stok : </label>
-                                <input name="ustock" value="<?php echo $item['stok']; ?>">
-                            </div>
-                            <button class="btn btn-success">Edit Product</button>
-                            <button class="btn btn-success" onclick=deleteItem()>Delete Product</button>
+                            Item Unavailable
                         </div>
-                    </form>
-            <?php }
-                else
-                {?>
-                    <div id="item-list" class="item-list">
-                        Item Unavailable
-                    </div>
-                <?php } ?>
-                    
-            <!-- <div class="quick-menu">
-                <ul>
-                    <li><i class="fa fa-share-square-o" aria-hidden="true"></i><p>Share</p></li>
-                    <li><i class="fa fa-history" aria-hidden="true"></i><p>History</p></li>
-                    <li><i class="fa fa-heart-o" aria-hidden="true"></i><p>Favorite</p></li>
-                    <li><i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        <p>Message</p></li>
-                </ul>
-                </div>
-                <div class="quick-social">
-                    <ul>
-                        <li><i class="fa fa-facebook-official" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-twitter-square" aria-hidden="true"></i></li>
-                        <li><i class="fa fa-instagram" aria-hidden="true"></i></li>
-
-                    </ul>
-                    </div>
-            </div> -->
+                    <?php } ?>
+            </div>            
         </div>
     </body>
 </html>

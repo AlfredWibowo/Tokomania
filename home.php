@@ -73,22 +73,6 @@
         </script>
     </head>
     <body onload="getItem()">
-            <!-- <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-                <ul>
-                    <li class="logo"><img src="toped.png"></li>
-                    <li class="active"><a href="home.php">Home</a></li>
-                    <li><a href="cart.php">Cart</a></li>
-                    <li><a href="search.php">Search</a></li>
-                    <li><a href="search-toko.php">Search Toko</a></li>
-                    <li><a href="history.php">History</a></li>
-                    <li>
-                        <?php echo '<a href="profileuser.php?id='. $username .'">Profile</a>'?>
-                    </li>                       
-                </ul>
-                <div class="Logout">
-                    <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
-                </div>
-            </nav> -->
         <?php include "navbar.php"; ?>
         <div class="container">
             

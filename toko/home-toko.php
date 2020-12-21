@@ -88,7 +88,7 @@
                 <div class="transparent">      
                     <h4 style="text-align:center; padding-top: 20px;"><b>Your Products</b></h4>              
                     <table id="item-list" class="item-list">
-                    
+                        
                     </table>
                 </div>
             </div>
