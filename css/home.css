@@ -15,7 +15,7 @@ body{
 }
 .transparent{
     background: rgba(255, 255, 255, 0.7);
-    width: fit-content;
+    width: 100%;
     height: auto;
     margin: 10px;
     animation: transitionIn 1s;
