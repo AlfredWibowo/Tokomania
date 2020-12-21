@@ -83,31 +83,14 @@
         </script>
     </head>
     <body onload="History()">
+        <?php include "navbar.php"; ?>
         <div class="container">
-            <div class="menu"> 
-                    <ul>
-                        <li class="logo"><img src="toped.png"></li>
-                        <li>
-                            <a href="home-toko.php">Seller Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="addpage.php"> Add Product</a>
-                        </li>
-                        <li>
-                            <a href="sales-toko.php">Sales</a>
-                        </li>
-                        <li>
-                            <a href="history-toko.php"> History</a>
-                        </li>    
-                    </ul>
-                <div class="Logout">
-                    <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
-                </div>
-            </div>
             <input type="hidden" id="pembeli" value="<?php echo $username; ?>"></input>
-            <div id="item-list" class="item-list">
+            <div class="transparenttable">
+                <div id="item-list" class="item-list">
 
-            </div>
+                </div>
+            </div>   
         </div>
     </body>
 </html>

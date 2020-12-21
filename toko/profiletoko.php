@@ -30,7 +30,7 @@
             function LogOut()
             {
                 $.ajax({
-                    url: "./services/logout.php",
+                    url: "../services/logout.php",
                     method: "GET",
                     success: function(res){
                         if(res == "logout"){

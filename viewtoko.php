@@ -86,15 +86,15 @@
         </script>
     </head>
     <body onload="getItem()">
+        <?php include "navbar.php"; ?>
         <div class="container">
-            <?php include "navbar.php"; ?>
             <input type="hidden" id="idtoko" value="<?php echo $toko['id_toko']; ?>">
             
             <div class="transparent">
                 <H3 style="margin-top:10%; text-align:center;"><?php echo $toko['nama_toko']; ?></H3>
-                 <div id="item-list" class="item-list" style="margin-top:0;">
+                 <table id="item-list" class="item-list" style="margin-top:0;">
 
-                </div>
+                </table>
             </div>
         </div>
     </body>

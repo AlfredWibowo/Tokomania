@@ -42,7 +42,7 @@
                                 <img class="card-img-top" src="` + `../img/` + item['gambar_filepath'] +`" alt="Card image cap">
                                 <div class="card-body">
                                     <h5 class="card-title">`+ item['nama_item'] +`</h5>
-                                    <p class="card-text">`+ item['harga'] +`</p>
+                                    <p class="card-text">Rp `+ item['harga'] +`</p>
                                     <a href="edititemtoko.php?id=`+ item['id_item'] +`" class="btn btn-primary">More</a>
                                 </div>
                             </div>
@@ -83,35 +83,13 @@
     </script>
 </head>
 <body onload="getItem()">
+        <?php include "navbar.php"; ?>
     <div class="container">
-                <div class="menu"> 
-                    <ul>
-                        <li class="logo"><img src="toped.png"></li>
-                        <li>
-                            <a href="home-toko.php">Seller Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="addpage.php"> Add Product</a>
-                        </li>
-                        <li>
-                            <a href="sales-toko.php">Sales</a>
-                        </li>
-                        <li>
-                            <a href="history-toko.php"> History</a>
-                        </li>
-                        <li>
-                            <a href="profiletoko.php">Profile</a>
-                        </li>        
-                    </ul>
-                    <div class="Logout">
-                        <a href="#" class="signup-btn" onclick="LogOut()">Log Out</a>
-                    </div>
-                </div>
-                <div>
-                    <h4><b>Your Products</b></h4>
-                </div>
-                <div id="item-list" class="item-list">
-                
+                <div class="transparent">      
+                    <h4 style="text-align:center; padding-top: 20px;"><b>Your Products</b></h4>              
+                    <table id="item-list" class="item-list">
+                    
+                    </table>
                 </div>
             </div>
     </body>
