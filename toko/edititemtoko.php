@@ -97,8 +97,8 @@
                                     <label>Stok : </label>
                                     <input class="form-control" name="ustock" value="<?php echo $item['stok']; ?>">
                                 </div>
-                                <button class="btn btn-success">Edit Product</button>
-                                <button class="btn btn-success" onclick=deleteItem()>Delete Product</button>
+                                <button class="btn btn-warning">Edit Product</button>
+                                <button class="btn btn-danger" onclick=deleteItem()>Delete Product</button>
                             </div>
                         </form>
                 <?php }

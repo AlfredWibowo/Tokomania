@@ -48,7 +48,7 @@
                                 status = "Confirmed";
                             }
                             else if(item['dps'] == 2) {
-                                status = "Cancled"
+                                status = "Canceled"
                             }
                             console.log(item['status']);
 

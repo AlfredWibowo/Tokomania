@@ -56,7 +56,7 @@
                 </h1>
             </div>
             <div class="row">
-                <div class="col-lg-5 col-md-6 col-sm-9 col-12" style="margin-left: auto; margin-right: auto;">
+                <div class="col-lg-6 col-md-10 col-sm-11 col-12" style="margin-left: auto; margin-right: auto;">
                 <div class="card">
                     <img class="card-img-top" src="<?php if($user['foto_filepath'] == NULL){ echo './img/profile_icon.jpg';} else{echo './img/'.$user['foto_filepath'];}  ?>" alt="Card image cap">
                     <div class="card-body">
