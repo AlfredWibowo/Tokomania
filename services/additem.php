@@ -15,8 +15,21 @@
      {
          $productname = $_POST['pname'];
          $productdesc = $_POST['desc'];
+         $category = $_POST['categ'];
+         $price = $_POST['price'];
+         $stock = $_POST['stock'];
          $file = $_FILES['img'];
          
+         if($productname == "" || $productdesc == "" || $category == "" || $price == "" || $stock == "")
+         {
+             header("Location: ../toko/addpage.php?stat=2");
+             exit();
+         }
+         if($category != "Book" && $category != "Fashion" && $category != "Gadget" && $category != "Gaming" && $category != "Kitchen" && $category != "Tools" && $category != "Stationary")
+         {
+             header("Location: ../toko/addpage.php?stat=3");
+             exit();
+         }
          $namatoko = $_SESSION['usernametoko'];
          $idtoko = "SELECT id_toko FROM toko WHERE nama_toko = ?";
          $result = $pdo->prepare($idtoko);
@@ -34,11 +47,6 @@
          $filename = $namatoko.$productname."_".$randomstring.".".$ext; // filename pake namatoko+productname
          $destination = "../img/".$filename;
          move_uploaded_file($file['tmp_name'],$destination);
-         $category = $_POST['categ'];
-         $price = $_POST['price'];
-         $stock = $_POST['stock'];
-
-
 
          $insertdata = "INSERT INTO item (nama_item,deskripsi,gambar_filepath,kategori,harga,stok,id_toko) VALUES(?,?,?,?,?,?,?)";
          $insertstmt = $pdo->prepare($insertdata);

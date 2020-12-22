@@ -12,6 +12,14 @@
         {
             echo "<script>alert('Hanya support tipe file .jpg dan .png')</script>";
         }
+        else if($_GET['stat'] == 2)
+        {
+            echo "<script>alert('Pastikan semua field terisi')</script>";
+        }
+        else if($_GET['stat'] == 3)
+        {
+            echo "<script>alert('Kategori tidak ada')</script>";
+        }
     }
 ?>
 <!DOCTYPE html>
@@ -65,16 +73,16 @@
                     </div>
                     <div class="form-group">
                         <label for="categ"><b>Category</b></label>
-                        <input list="category" name="categ" id="categ" placeholder="Select Category" required>
-                        <datalist id="category">
-                            <option value="Book"></option>
-                            <option value="Fashion"></option>
-                            <option value="Gadget"></option>
-                            <option value="Gaming"></option>
-                            <option value="Kitchen"></option>
-                            <option value="Tools"></option>
-                            <option value="Stationary"></option>
-                        </datalist>
+                        <select name="categ" id="categ" required>
+                            <option value="">Select Catergory</option>
+                            <option value="Book">Book</option>
+                            <option value="Fashion">Fashion</option>
+                            <option value="Gadget">Gadget</option>
+                            <option value="Gaming">Gaming</option>
+                            <option value="Kitchen">Kitchen</option>
+                            <option value="Tools">Tools</option>
+                            <option value="Stationary">Stationary</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="price"><b>Price</b></label>

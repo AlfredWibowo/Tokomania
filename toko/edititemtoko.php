@@ -13,6 +13,18 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute([$id_item]);
     }
+    if(isset($_GET['stat']))
+    {
+        $stat = $_GET['stat'];
+        if($stat == 1)
+        {
+            echo "<script>alert('Pastikan semua field terisi')</script>";
+        }
+        else if($stat == 2)
+        {
+            echo "<script>alert('Kategori tidak ada')</script>";
+        }
+    }
 ?>
 <html>
     <head>
@@ -87,7 +99,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Kategori : </label>
-                                    <input class="form-control" disabled value="<?php echo $item['kategori']; ?>">
+                                    <select class="form-control" name="ucateg">
+                                        <option value="<?php echo $item['kategori']; ?>"><?php echo $item['kategori']; ?></option>
+                                        <option value="Book">Book</option>
+                                        <option value="Fashion">Fashion</option>
+                                        <option value="Gadget">Gadget</option>
+                                        <option value="Gaming">Gaming</option>
+                                        <option value="Kitchen">Kitchen</option>
+                                        <option value="Tools">Tools</option>
+                                        <option value="Stationary">Stationary</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label>Harga : </label>
