@@ -41,17 +41,12 @@
                     <form method="POST" action="./services/verify-login.php">
                         <div class="form-content">  
                             <div class="form-group">
-
                                 <label for="username"><b>Username</b></label>
                                 <div class="col-12 col-md-10 col-lg-9" style="margin-left: auto; margin-right: auto">
                                     <input type="text" class="form-control" name="username" id="username" placeholder="Enter username" required>
                                 </div>
-
-                                <label for="password"><b>Password</b></label>
-                                <div class="col-12 col-md-10 col-lg-9" style="margin-left: auto; margin-right: auto">
-                                    <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
-                                </div>
-
+                            </div>
+                            <div class="form-group">
                                 <label for="password"><b>Password</b></label>
                                 <div class="col-12 col-md-10 col-lg-9" style="margin-left: auto; margin-right: auto">
                                     <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
